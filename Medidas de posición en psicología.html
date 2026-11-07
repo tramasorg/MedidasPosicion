@@ -1,0 +1,821 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Medidas de posición en psicología</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F6FA; --card:#FFFFFF; --ink:#13223B; --muted:#51607A; --line:#C9D3E1;
+  --blue:#1F56B3; --blueSoft:#E2EBF8; --teal:#0B7A87; --tealSoft:#D8EEF0; --gold:#8F6300; --goldSoft:#F5E9C8;
+  --hl:#FFF1A8; --ok:#1E7A45; --okSoft:#DCF1E4; --bad:#B42318; --badSoft:#FBE3E1; --grey:#AEB9CA;
+  --xlgreen:#1D6F42; --xlgrid:#E1E5EA;
+  --serif:"Lora", Georgia, "Times New Roman", serif;
+  --sans:"Work Sans", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  --mono:ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1624; --card:#162133; --ink:#E6ECF5; --muted:#A2B0C6; --line:#2C3B53;
+    --blue:#7FA8F0; --blueSoft:#1C2E4E; --teal:#5CC6D1; --tealSoft:#133840; --gold:#E3B75A; --goldSoft:#3B3017;
+    --hl:#4F4715; --ok:#7FD39E; --okSoft:#173A26; --bad:#F29B91; --badSoft:#402020; --grey:#4A5870;
+    --xlgreen:#6FCB98; --xlgrid:#2C3B53;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1624; --card:#162133; --ink:#E6ECF5; --muted:#A2B0C6; --line:#2C3B53;
+  --blue:#7FA8F0; --blueSoft:#1C2E4E; --teal:#5CC6D1; --tealSoft:#133840; --gold:#E3B75A; --goldSoft:#3B3017;
+  --hl:#4F4715; --ok:#7FD39E; --okSoft:#173A26; --bad:#F29B91; --badSoft:#402020; --grey:#4A5870;
+  --xlgreen:#6FCB98; --xlgrid:#2C3B53;
+}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.6}
+.wrap{max-width:1140px;margin:0 auto;padding:28px 16px 80px}
+h1{font-weight:400;font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:.2em 0 .25em;max-width:22ch}
+h2{font-weight:600;font-size:1.6rem;line-height:1.2;margin:0 0 .4em}
+h3{font-family:var(--sans);font-weight:600;font-size:1.02rem;margin:1.1em 0 .4em}
+p{margin:.5em 0 .8em;max-width:72ch}
+ul,ol{padding-left:1.25em;margin:.4em 0} li{margin:.3em 0}
+.lede{font-size:1.12rem;color:var(--muted);max-width:62ch}
+.note{font-family:var(--sans);font-size:.85rem;color:var(--muted)}
+.cite{font-family:var(--sans);font-size:.82rem;color:var(--muted);white-space:nowrap}
+sub,sup{font-size:.72em}
+code,.code{font-family:var(--mono);font-size:.88em}
+button{font-family:var(--sans)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+
+.scen{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-family:var(--sans);font-size:.92rem;margin:14px 0 0}
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--ink);padding:6px 14px;font:500 .9rem var(--sans);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+nav.parts{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 24px}
+nav.parts button{flex:1 1 160px;text-align:left;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 14px;cursor:pointer;font-size:.93rem;line-height:1.3}
+nav.parts button b{display:block;font-size:.76rem;color:var(--muted);font-weight:500}
+nav.parts button[aria-selected="true"]{border-color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)}
+section.part{display:none} section.part.on{display:block}
+
+.case{border-left:4px solid var(--teal);background:var(--tealSoft);padding:12px 18px;border-radius:0 8px 8px 0;margin:4px 0 18px}
+.case p{margin:.2em 0}
+.def{border-left:4px solid var(--blue);background:var(--blueSoft);padding:8px 14px;border-radius:0 8px 8px 0;margin:10px 0}
+.def p{margin:.2em 0}
+.warnbox{border-left:4px solid var(--bad);background:var(--badSoft);padding:8px 14px;border-radius:0 8px 8px 0;margin:10px 0}
+.warnbox p{margin:.2em 0}
+
+.stepper{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:24px;align-items:start}
+@media (max-width:880px){.stepper{grid-template-columns:1fr}}
+.explain{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;position:sticky;top:calc(12px + env(safe-area-inset-top,0px))}
+@media (max-width:880px){.explain{position:static}}
+.stepcount{font-family:var(--sans);font-size:.85rem;color:var(--muted);margin-bottom:4px}
+.explain h3.st{font-family:var(--serif);font-size:1.35rem;font-weight:600;margin:.1em 0 .4em}
+.dots{display:flex;flex-wrap:wrap;gap:5px;margin:14px 0 12px}
+.dots button{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);background:transparent;color:var(--muted);font:500 .75rem var(--sans);cursor:pointer;padding:0}
+.dots button.done{background:var(--tealSoft);border-color:var(--teal);color:var(--ink)}
+.dots button.cur{background:var(--blue);border-color:var(--blue);color:#fff}
+.ctrl{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{font:600 .92rem var(--sans);padding:9px 16px;border-radius:8px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.small{padding:6px 12px;font-size:.85rem}
+.btn:disabled{opacity:.4;cursor:default}
+.formula{font-family:var(--sans);background:var(--paper);border-radius:8px;padding:8px 12px;margin:8px 0;font-variant-numeric:tabular-nums;overflow-x:auto;line-height:1.75}
+.viz{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0;overflow-x:auto}
+.viz svg{width:100%;height:auto;display:block;min-width:540px}
+
+.ordered{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0;font-family:var(--sans)}
+.ord{display:flex;flex-direction:column;align-items:center;min-width:2.6em;border:1px solid var(--line);border-radius:6px;background:var(--card);overflow:hidden}
+.ord b{font-size:.95rem;padding:3px 6px;font-variant-numeric:tabular-nums}
+.ord small{font-size:.68rem;color:var(--muted);background:var(--paper);width:100%;text-align:center;padding:1px 0}
+.ord.hl{border-color:var(--ink);box-shadow:0 0 0 1.5px var(--ink)}
+.ord.hl b{background:var(--hl)}
+.ord.out b{color:var(--bad)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:10px 0;font-family:var(--sans)}
+.stats div{border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--paper)}
+.stats span{display:block;font-size:.74rem;color:var(--muted)}
+.stats strong{font-size:1.12rem;font-variant-numeric:tabular-nums}
+.stats div.key{background:var(--hl)}
+.tscroll{overflow-x:auto;margin:8px 0}
+table.t{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:.88rem;font-variant-numeric:tabular-nums}
+.t th,.t td{padding:6px 9px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
+.t th{background:var(--paper);font-weight:600}
+.t td.l,.t th.l{text-align:left}
+.t tr.row-hl td{background:var(--hl)}
+.t td.diff{color:var(--bad);font-weight:600}
+.calcrow{display:flex;gap:10px;flex-wrap:wrap;align-items:end;font-family:var(--sans);font-size:.88rem;margin:6px 0 4px}
+.calcrow label{display:flex;flex-direction:column;gap:3px;color:var(--muted)}
+.calcrow select,.calcrow input{font:500 .95rem var(--sans);padding:6px 8px;border:1.5px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink);min-width:90px}
+svg text{font-family:var(--sans);font-size:11.5px;fill:var(--muted)}
+svg text.lbl{fill:var(--ink);font-weight:600;font-size:12.5px}
+svg text.val{fill:var(--ink);font-size:11px}
+svg text.big{fill:var(--ink);font-weight:700;font-size:13px}
+svg .axis{stroke:var(--ink);stroke-width:1.3}
+svg .grid{stroke:var(--line);stroke-width:1}
+svg .dot{fill:var(--blue);opacity:.85}
+svg .dotOut{fill:var(--card);stroke:var(--bad);stroke-width:2.2}
+svg .dotFar{fill:var(--bad);stroke:var(--bad);stroke-width:2}
+svg .box{fill:var(--blueSoft);stroke:var(--blue);stroke-width:2}
+svg .box2{fill:var(--tealSoft);stroke:var(--teal);stroke-width:2}
+svg .med{stroke:var(--ink);stroke-width:3}
+svg .wh{stroke:var(--ink);stroke-width:1.8}
+svg .fence{stroke:var(--bad);stroke-width:1.5;stroke-dasharray:6 4}
+svg .fence2{stroke:var(--bad);stroke-width:1.2;stroke-dasharray:2 4}
+svg .ric{stroke:var(--gold);stroke-width:2}
+svg .mark{stroke:var(--gold);stroke-width:2;stroke-dasharray:4 3}
+svg .seg1{fill:var(--blueSoft)} svg .seg2{fill:var(--tealSoft)}
+svg .ogive{fill:none;stroke:var(--blue);stroke-width:2.4}
+svg .guide{stroke:var(--gold);stroke-width:1.6;stroke-dasharray:5 4}
+svg .gdot{fill:var(--hl);stroke:var(--ink);stroke-width:1.5}
+svg .bar{fill:var(--blueSoft);stroke:var(--blue);stroke-width:1.2}
+
+/* Excel */
+.xl{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin:10px 0}
+.xlbar{display:flex;align-items:center;gap:8px;background:var(--xlgreen);color:#fff;font:600 .82rem var(--sans);padding:6px 12px}
+:root[data-theme="dark"] .xlbar{color:#0E1624}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .xlbar{color:#0E1624}}
+.xlfx{display:flex;gap:8px;align-items:center;border-bottom:1px solid var(--line);padding:5px 10px;font-family:var(--mono);font-size:.85rem;background:var(--paper);overflow-x:auto;white-space:nowrap}
+.xlfx b{font-family:var(--sans);color:var(--muted);font-weight:600;min-width:2.6em}
+.xlgrid{overflow-x:auto}
+table.xg{border-collapse:collapse;font-family:var(--sans);font-size:.84rem;font-variant-numeric:tabular-nums;min-width:100%}
+.xg th{background:var(--paper);color:var(--muted);font-weight:500;border:1px solid var(--xlgrid);padding:3px 8px;min-width:34px}
+.xg td{border:1px solid var(--xlgrid);padding:3px 8px;white-space:nowrap;text-align:right;cursor:pointer}
+.xg td.txt{text-align:left}
+.xg td.hd{font-weight:700;text-align:left;background:var(--blueSoft)}
+.xg td.inp{color:var(--blue)}
+.xg td.sel{outline:2.5px solid var(--xlgreen);outline-offset:-2px;background:var(--okSoft)}
+.xg td.flag{color:var(--bad);font-weight:600}
+table.ftab{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:.86rem;margin:8px 0}
+.ftab th,.ftab td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.ftab th{background:var(--paper)}
+.ftab td.fx{font-family:var(--mono);font-size:.82rem;color:var(--xlgreen);white-space:nowrap}
+.ftab td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.copy{border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:6px;font:500 .72rem var(--sans);padding:2px 7px;cursor:pointer;margin-left:6px}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;position:relative;padding:4px 0 6px 40px;margin:8px 0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:4px;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);font:700 .85rem var(--sans);display:flex;align-items:center;justify-content:center}
+.kbd{font-family:var(--sans);font-size:.82rem;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 6px;background:var(--card);white-space:nowrap}
+.xlsec{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:16px 0}
+.xlsec h3{font-family:var(--serif);font-size:1.3rem;margin-top:0}
+
+details.own{margin:18px 0 0;font-family:var(--sans);font-size:.92rem}
+details.own summary{cursor:pointer;color:var(--blue);font-weight:600}
+details.own textarea{width:100%;min-height:70px;margin:6px 0;font:inherit;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.msg{font-family:var(--sans);font-size:.9rem;margin:8px 0} .msg.ok{color:var(--ok)} .msg.bad{color:var(--bad)}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.stage h3{font-family:var(--serif);font-size:1.3rem;margin-top:0}
+.calcgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;font-family:var(--sans);margin:12px 0}
+.calcgrid label{display:flex;flex-direction:column;font-size:.84rem;color:var(--muted);gap:4px}
+input.cell2{font:500 .95rem var(--sans);padding:7px 8px;border:1.5px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink);width:100%;text-align:center;font-variant-numeric:tabular-nums}
+.cell2.ok{border-color:var(--ok);background:var(--okSoft)} .cell2.bad{border-color:var(--bad);background:var(--badSoft)}
+.fb{font-family:var(--sans);font-size:.8rem;min-height:1.1em} .fb.ok{color:var(--ok)} .fb.bad{color:var(--bad)}
+.sol{font-family:var(--sans);font-size:.9rem;background:var(--paper);border-radius:8px;padding:10px 14px;margin-top:10px;display:none;line-height:1.75;overflow-x:auto}
+.sol.on{display:block}
+.q{margin:14px 0;font-family:var(--sans);font-size:.95rem}
+.q p{font-family:var(--serif);font-size:1.05rem;margin-bottom:6px}
+.q label{display:flex;gap:8px;align-items:flex-start;margin:4px 0;cursor:pointer;padding:6px 10px;border-radius:8px;border:1px solid transparent}
+.q label.ok{border-color:var(--ok);background:var(--okSoft)} .q label.bad{border-color:var(--bad);background:var(--badSoft)}
+.q .why{display:none;color:var(--muted);margin:6px 0 0 4px} .q.checked .why{display:block}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:22px}
+.cards > div{border-top:2px solid var(--ink);padding-top:6px}
+.cards .warn{border-top-color:var(--bad)}
+.refs{margin-top:44px;border-top:2px solid var(--ink);padding-top:8px}
+.refs p{padding-left:2.2em;text-indent:-2.2em;font-size:.95rem;max-width:none;margin:.45em 0}
+footer{margin-top:30px;font-family:var(--sans);font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="note" style="margin:0;font-size:.9rem">Estadística descriptiva para psicología</p>
+    <h1>Medidas de posición: cuartiles, deciles y percentiles</h1>
+    <p class="lede">Aprende paso a paso a calcular e interpretar cuartiles, deciles, percentiles y rangos percentiles con datos no agrupados y agrupados, a construir un diagrama de caja y bigotes y a hacer todo en Excel con fórmulas.</p>
+    <div class="scen">Escenario de los ejemplos:
+      <span class="seg" role="group" aria-label="Escenario">
+        <button data-scen="clin" aria-pressed="true">Clínico</button>
+        <button data-scen="for" aria-pressed="false">Forense</button>
+      </span>
+    </div>
+  </header>
+
+  <nav class="parts" role="tablist" aria-label="Partes del tema">
+    <button role="tab" data-part="p1" aria-selected="true"><b>Parte 1</b>Datos no agrupados</button>
+    <button role="tab" data-part="p2" aria-selected="false"><b>Parte 2</b>Datos agrupados</button>
+    <button role="tab" data-part="p3" aria-selected="false"><b>Parte 3</b>Caja y bigotes</button>
+    <button role="tab" data-part="p4" aria-selected="false"><b>Parte 4</b>Todo en Excel</button>
+    <button role="tab" data-part="p5" aria-selected="false"><b>Parte 5</b>Ejercicio</button>
+  </nav>
+
+  <section class="part on" id="p1" role="tabpanel">
+    <h2>Medidas de posición con datos no agrupados</h2>
+    <div class="case" id="p1case"></div>
+    <div data-stepper="u"></div>
+    <details class="own"><summary>Usar otros datos</summary>
+      <p class="note">Pega al menos 5 valores separados por espacios, comas o saltos de línea; decimales con punto. Se usan en las partes 1, 3 y 4.</p>
+      <textarea id="uText" aria-label="Datos propios"></textarea>
+      <div class="ctrl"><button class="btn small" id="uApply">Usar estos datos</button><button class="btn small ghost" id="uReset">Volver al ejemplo</button></div>
+      <div class="msg" id="uMsg"></div>
+    </details>
+  </section>
+
+  <section class="part" id="p2" role="tabpanel">
+    <h2>Medidas de posición con datos agrupados</h2>
+    <div class="case" id="p2case"></div>
+    <div data-stepper="g"></div>
+    <details class="own"><summary>Usar otros datos</summary>
+      <p class="note">Pega al menos 20 valores crudos: se agrupan con la regla de Sturges, igual que en la tabla de frecuencias.</p>
+      <textarea id="gText" aria-label="Datos propios para agrupar"></textarea>
+      <div class="ctrl"><button class="btn small" id="gApply">Agrupar y usar</button><button class="btn small ghost" id="gReset">Volver al ejemplo</button></div>
+      <div class="msg" id="gMsg"></div>
+    </details>
+  </section>
+
+  <section class="part" id="p3" role="tabpanel">
+    <h2>Construcción del diagrama de caja y bigotes</h2>
+    <div class="case" id="p3case"></div>
+    <div data-stepper="b"></div>
+  </section>
+
+  <section class="part" id="p4" role="tabpanel">
+    <h2>Todo en Excel con fórmulas</h2>
+    <p>Esta parte usa los mismos datos de las partes 1 a 3. Las fórmulas están escritas con los nombres de Excel en español y con <strong>coma</strong> como separador de argumentos, que es lo habitual con la configuración regional de México. Si tu Excel usa coma decimal (configuración de España, por ejemplo), cambia las comas por <strong>punto y coma</strong>: <code>=CUARTIL.EXC(A2:A16;1)</code>.</p>
+    <div class="ctrl" style="margin:6px 0 4px"><a class="btn" id="xlDown" download="medidas-de-posicion.xlsx" href="#">Descargar el libro de Excel con todas las fórmulas</a></div>
+    <p class="note">El libro trae cuatro hojas (instrucciones; datos no agrupados con caja y bigotes; comparación de dos grupos; datos agrupados con rango percentil) con los datos del escenario elegido, en las mismas celdas que usa esta guía. Las celdas azules son datos: si las cambias, todo se recalcula.</p>
+    <div id="xlBody"></div>
+  </section>
+
+  <section class="part" id="p5" role="tabpanel">
+    <h2>Ejercicio de aprendizaje</h2>
+    <p>Cada ejercicio genera datos nuevos del escenario elegido. Usa el método de la posición (n + 1) para datos no agrupados y la fórmula de interpolación para datos agrupados. Redondea a dos decimales.</p>
+    <div class="ctrl"><button class="btn" id="exNew">Generar otro ejercicio</button></div>
+    <div class="stage"><h3>A. Datos no agrupados y caja y bigotes</h3><div id="exA"></div></div>
+    <div class="stage"><h3>B. Datos agrupados</h3><div id="exB"></div></div>
+    <div class="stage"><h3>C. Interpreta los diagramas de caja</h3><div id="exC"></div></div>
+  </section>
+
+  <section class="refs" aria-label="Referencias">
+    <h2>Referencias</h2>
+    <p>Beck, A. T., Epstein, N., Brown, G., &amp; Steer, R. A. (1988). An inventory for measuring clinical anxiety: Psychometric properties. <i>Journal of Consulting and Clinical Psychology, 56</i>(6), 893–897. https://doi.org/10.1037/0022-006X.56.6.893</p>
+    <p>Douglas, K. S., Hart, S. D., Webster, C. D., &amp; Belfrage, H. (2013). <i>HCR-20V3: Assessing risk for violence. User guide</i>. Mental Health, Law, and Policy Institute, Simon Fraser University.</p>
+    <p>Frigge, M., Hoaglin, D. C., &amp; Iglewicz, B. (1989). Some implementations of the boxplot. <i>The American Statistician, 43</i>(1), 50–54. https://doi.org/10.1080/00031305.1989.10475612</p>
+    <p>Hyndman, R. J., &amp; Fan, Y. (1996). Sample quantiles in statistical packages. <i>The American Statistician, 50</i>(4), 361–365. https://doi.org/10.1080/00031305.1996.10473566</p>
+    <p>McGill, R., Tukey, J. W., &amp; Larsen, W. A. (1978). Variations of box plots. <i>The American Statistician, 32</i>(1), 12–16. https://doi.org/10.2307/2683468</p>
+    <p>Microsoft. (s. f.). <i>Función CUARTIL.EXC</i>. Soporte técnico de Microsoft. https://support.microsoft.com/es-es/office/5a355b7a-840b-4a01-b0f1-f538c2864cad</p>
+    <p>Pagano, R. R. (2011). <i>Estadística para las ciencias del comportamiento</i> (9.ª ed.). Cengage Learning.</p>
+    <p>Radloff, L. S. (1977). The CES-D Scale: A self-report depression scale for research in the general population. <i>Applied Psychological Measurement, 1</i>(3), 385–401. https://doi.org/10.1177/014662167700100306</p>
+    <p>Triola, M. F. (2018). <i>Estadística</i> (12.ª ed.). Pearson Educación de México.</p>
+    <p>Tukey, J. W. (1977). <i>Exploratory data analysis</i>. Addison-Wesley.</p>
+    <p>Weathers, F. W., Litz, B. T., Keane, T. M., Palmieri, P. A., Marx, B. P., &amp; Schnurr, P. P. (2013). <i>The PTSD Checklist for DSM-5 (PCL-5)</i>. National Center for PTSD.</p>
+  </section>
+  <footer>Todos los puntajes son simulados con fines didácticos. Los instrumentos mencionados deben aplicarlos e interpretarlos profesionales capacitados, con baremos apropiados a la población evaluada.</footer>
+</div>
+
+<script>
+/* ================= utilidades ================= */
+const $ = s => document.querySelector(s);
+const r6 = x => Math.round(x * 1e6) / 1e6;
+const fv = x => { if (x === null || x === undefined || isNaN(x)) return '—'; return Number.isInteger(r6(x)) ? String(Math.round(x)) : String(+r6(x).toFixed(2)); };
+const f2 = x => (Math.abs(x) < 0.005 ? 0 : x).toFixed(2);
+const f1 = x => (Math.abs(x) < 0.05 ? 0 : x).toFixed(1);
+const sum = a => a.reduce((s, x) => s + x, 0);
+const rint = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const parse = t => t.split(/[\s,;]+/).filter(Boolean).map(Number);
+const num = v => { const t = String(v).trim().replace(',', '.'); return t === '' ? NaN : Number(t); };
+const decimalsOf = arr => Math.max(0, ...arr.map(v => { const s = String(v); const i = s.indexOf('.'); return i < 0 ? 0 : s.length - i - 1; }));
+const C = t => `<span class="cite">(${t})</span>`;
+const QN = { Q: 4, D: 10, P: 100 };
+const QW = { Q: 'cuartil', D: 'decil', P: 'percentil' };
+const ord = k => k + '.°';
+
+/* ================= escenarios ================= */
+const SCEN = {
+  clin: {
+    u: [12, 18, 22, 9, 25, 31, 15, 20, 28, 17, 14, 52, 23, 19, 26], uShort: 'BAI', lo: 0, hi: 63, who: 'pacientes', one: 'paciente', prVal: 23,
+    uIntro: `Quince pacientes que llegan a un servicio de psicología clínica por síntomas de ansiedad respondieron el Inventario de Ansiedad de Beck ${C('BAI; Beck et al., 1988')}, con puntajes de 0 a 63: a mayor puntaje, más síntomas.`,
+    cmp: [8, 10, 13, 6, 15, 19, 9, 12, 16, 11, 7, 34, 14, 10, 17], gA: 'Antes del tratamiento', gB: 'Después de 12 sesiones',
+    cmpIntro: 'Los mismos 15 pacientes volvieron a responder el BAI al terminar 12 sesiones de terapia cognitivo-conductual.',
+    g: [15,21,19,9,10,13,13,20,27,13,8,10,22,19,12,23,13,17,39,11,21,23,14,11,29,28,26,20,17,26,14,9,14,12,9,10,25,14,7,13,12,20,9,14,19,21,16,8,14,16],
+    gShort: 'CES-D', gWho: 'cuidadores', gOne: 'cuidador', gArt: 'un cuidador', gPr: 25,
+    gIntro: `Cincuenta cuidadores primarios de personas con demencia respondieron la Escala de Depresión del Centro de Estudios Epidemiológicos ${C('CES-D; Radloff, 1977')}, de 0 a 60 puntos. Los puntajes ya están organizados en una tabla de frecuencias con la regla de Sturges.`,
+    applyU: `<p><strong>Para qué sirve en la clínica.</strong> Los baremos de muchas pruebas convierten un puntaje bruto en percentil respecto a un grupo normativo. Dentro del servicio, ubicar a quienes están por encima de Q3 ayuda a priorizar la lista de espera, y comparar el percentil de un paciente antes y después del tratamiento muestra si cambió su posición relativa.</p><p><strong>También con estudiantes.</strong> Si un alumno queda en el percentil 25 de calificaciones de su grupo, el 25% del grupo obtuvo menos que él; no dice si aprobó ni cuánto aprendió.</p>`,
+    critU: `<p><strong>Lectura crítica.</strong> Un percentil describe la <em>posición relativa</em> dentro de un grupo, no la gravedad ni un diagnóstico. El mismo puntaje BAI puede quedar en un percentil muy alto frente a población general y en uno medio frente a pacientes de un servicio de ansiedad: siempre pregunta <em>¿percentil respecto a quién?</em></p>`,
+    applyG: 'En cuidadores, el decil 9 marca a la décima parte con más síntomas depresivos: un criterio útil para decidir a quién ofrecer primero un grupo de apoyo o una valoración clínica, siempre confirmada con entrevista.'
+  },
+  for: {
+    u: [14, 19, 22, 11, 25, 29, 17, 21, 27, 18, 16, 38, 24, 20, 1], uShort: 'HCR-20', lo: 0, hi: 40, who: 'internos', one: 'interno', prVal: 24,
+    uIntro: `Quince internos fueron evaluados con el HCR-20 V3 ${C('Douglas et al., 2013')} antes de obtener su libertad y no reincidieron en dos años de seguimiento. Para el ejercicio se usa la suma de los 20 ítems (0 a 40). El HCR-20 es una guía de juicio profesional estructurado: en un peritaje el riesgo se valora con un juicio integrado, no con el puntaje total.`,
+    cmp: [22, 26, 19, 28, 31, 24, 25, 33, 27, 21, 30, 18, 29, 36, 23], gA: 'Sin reincidencia', gB: 'Con reincidencia',
+    cmpIntro: 'Otro grupo de 15 internos, evaluado de la misma forma, sí reincidió durante el seguimiento.',
+    g: [30,45,59,62,57,43,46,39,25,36,54,45,38,28,41,34,42,48,13,41,23,30,26,56,51,48,32,23,37,45,41,51,37,65,50,68,45,39,31,52,56,44,47,38,37,38,18,29,42,44],
+    gShort: 'PCL-5', gWho: 'mujeres atendidas', gOne: 'mujer atendida', gArt: 'una mujer', gPr: 50,
+    gIntro: `Cincuenta mujeres atendidas en un centro de justicia para mujeres por violencia familiar respondieron la Lista de Verificación del TEPT para el DSM-5 ${C('PCL-5; Weathers et al., 2013')}, de 0 a 80 puntos. Los puntajes ya están organizados en una tabla de frecuencias con la regla de Sturges.`,
+    applyU: `<p><strong>Para qué sirve en lo forense.</strong> En un peritaje, el percentil ubica el puntaje del evaluado frente a una muestra de referencia comparable (por ejemplo, internos del mismo sistema penitenciario). También permite describir grupos: decir que la mediana de quienes reincidieron es mayor que el Q3 de quienes no reincidieron es una afirmación sobre grupos, no sobre una persona.</p>`,
+    critU: `<p><strong>Lectura crítica.</strong> Un error frecuente en informes es confundir «percentil 80» con «80% de probabilidad de reincidir». El percentil solo dice que el evaluado puntuó más alto que el 80% del grupo de referencia; no es una probabilidad de conducta futura, y depende por completo de quién integra ese grupo.</p>`,
+    applyG: 'En la atención a víctimas, el decil 9 identifica a la décima parte con más síntomas postraumáticos: un criterio para priorizar la atención especializada, que siempre se confirma con entrevista clínica.'
+  }
+};
+let KEY = 'clin', SC = SCEN.clin;
+const ST = { u: null, uOwn: false, g: null, gOwn: false, calc: { t: 'D', k: 7 }, gcalc: { t: 'P', k: 75 }, xlMode: 'EXC' };
+
+/* ================= motor no agrupados ================= */
+const sorted = d => [...d].sort((a, b) => a - b);
+function posOf(n, p, method){
+  if (method === 'INC') return 1 + (n - 1) * p;
+  return p * (n + 1);
+}
+function quant(d, p, method = 'EXC'){
+  const s = sorted(d), n = s.length;
+  if (method === 'TRI'){
+    const L = p * n;
+    if (Math.abs(L - Math.round(L)) < 1e-9){ const j = Math.round(L); if (j <= 0) return { v: s[0], L, j: 1, note: 'entero' }; if (j >= n) return { v: s[n - 1], L, j: n, note: 'entero' }; return { v: (s[j - 1] + s[j]) / 2, L, j, note: 'entero' }; }
+    const j = Math.ceil(L); return { v: s[Math.min(n, j) - 1], L, j, note: 'redondeo' };
+  }
+  const L = posOf(n, p, method);
+  if (L < 1) return { v: s[0], L, j: 1, frac: 0, out: 'low' };
+  if (L > n) return { v: s[n - 1], L, j: n, frac: 0, out: 'high' };
+  const j = Math.floor(L + 1e-9), frac = r6(L - j);
+  const v = j >= n ? s[n - 1] : s[j - 1] + frac * (s[j] - s[j - 1]);
+  return { v, L, j, frac, a: s[j - 1], b: j < n ? s[j] : s[j - 1] };
+}
+function prOf(d, x){
+  const s = sorted(d), n = s.length;
+  if (x <= s[0]) return { pos: 1, pr: 100 / (n + 1), clamp: x < s[0] };
+  if (x >= s[n - 1]) return { pos: n, pr: n / (n + 1) * 100, clamp: x > s[n - 1] };
+  let r = s.findIndex(v => v >= x);
+  if (s[r] === x) return { pos: r + 1, pr: (r + 1) / (n + 1) * 100, exact: true };
+  const pos = r + (x - s[r - 1]) / (s[r] - s[r - 1]);
+  return { pos, pr: pos / (n + 1) * 100, a: s[r - 1], b: s[r], r };
+}
+function box(d){
+  const s = sorted(d), n = s.length;
+  const q1 = quant(d, .25).v, me = quant(d, .5).v, q3 = quant(d, .75).v, ric = q3 - q1;
+  const li = q1 - 1.5 * ric, ls = q3 + 1.5 * ric, le = q1 - 3 * ric, lse = q3 + 3 * ric;
+  const inside = s.filter(v => v >= li - 1e-9 && v <= ls + 1e-9);
+  const wl = inside.length ? inside[0] : q1, wh = inside.length ? inside[inside.length - 1] : q3;
+  const outs = s.filter(v => v < li - 1e-9 || v > ls + 1e-9), far = s.filter(v => v < le - 1e-9 || v > lse + 1e-9);
+  return { s, n, min: s[0], max: s[n - 1], q1, me, q3, ric, li, ls, le, lse, wl, wh, outs, far };
+}
+function shape(b){
+  const lo = b.me - b.q1, hi = b.q3 - b.me, wlo = b.q1 - b.wl, whi = b.wh - b.q3;
+  const score = ((hi - lo) / (b.ric || 1)) + .5 * ((whi - wlo) / ((whi + wlo) || 1));
+  if (score > .25) return { key: 'pos', txt: 'asimetría positiva (cola hacia los puntajes altos)' };
+  if (score < -.25) return { key: 'neg', txt: 'asimetría negativa (cola hacia los puntajes bajos)' };
+  return { key: 'sym', txt: 'forma aproximadamente simétrica' };
+}
+
+/* ================= motor agrupados ================= */
+function grouped(data){
+  const n = data.length, s = sorted(data), d = decimalsOf(data), u = r6(10 ** -d);
+  const min = s[0], max = s[n - 1], R = r6(max - min), k = Math.round(1 + 3.322 * Math.log10(n));
+  let A = r6(Math.ceil(r6(R / k / u)) * u); if (r6(A * k) <= R) A = r6(A + u);
+  const rows = []; let F = 0;
+  for (let i = 0; i < k; i++){
+    const Li = r6(min + i * A), Ls = r6(Li + A - u), LRi = r6(Li - u / 2), LRs = r6(Ls + u / 2), xi = r6((Li + Ls) / 2);
+    const fi = s.filter(v => v >= Li - 1e-9 && v <= Ls + 1e-9).length; F += fi;
+    rows.push({ Li, Ls, LRi, LRs, xi, fi, Fi: F, Frp: F / n * 100 });
+  }
+  return { n, u, min, max, R, k, A, rows, data };
+}
+function gq(G, p){
+  const pos = p * G.n, i = G.rows.findIndex(r => r.Fi >= pos - 1e-9), r = G.rows[i], Fp = i ? G.rows[i - 1].Fi : 0;
+  const v = r.LRi + (r.fi ? (pos - Fp) / r.fi : 0) * G.A;
+  return { pos, i, r, Fp, v };
+}
+function gpr(G, x){
+  const rows = G.rows; let i = rows.findIndex(r => x <= r.LRs + 1e-9); if (i < 0) i = rows.length - 1;
+  const r = rows[Math.max(0, i)], Fp = i > 0 ? rows[i - 1].Fi : 0;
+  const cx = Math.max(r.LRi, Math.min(r.LRs, x));
+  const cum = Fp + (cx - r.LRi) / G.A * r.fi;
+  return { i, r, Fp, cum, pr: cum / G.n * 100 };
+}
+
+/* ================= SVG ================= */
+function niceStep(range, target = 8){ const raw = range / target, p = 10 ** Math.floor(Math.log10(raw || 1)); for (const m of [1, 2, 2.5, 5, 10]) if (m * p >= raw) return m * p; return 10 * p; }
+function rulerSVG(){
+  const W = 640, X = p => 30 + p * 580;
+  let s = `<svg viewBox="0 0 ${W} 210" role="img" aria-label="Cuartiles, deciles y percentiles dividen la distribución en 4, 10 y 100 partes">`;
+  const rows = [['Cuartiles', 4, 'Q'], ['Deciles', 10, 'D'], ['Percentiles', 100, 'P']];
+  rows.forEach(([lab, q, L], r) => {
+    const y = 30 + r * 62;
+    s += `<text class="lbl" x="30" y="${y - 8}">${lab}: ${q} partes iguales</text>`;
+    for (let i = 0; i < q; i++) s += `<rect class="${i % 2 ? 'seg2' : 'seg1'}" x="${X(i / q)}" y="${y}" width="${X(1 / q) - X(0)}" height="18"/>`;
+    for (let i = 1; i < q; i++){ if (q === 100 && i % 10) { s += `<line class="grid" x1="${X(i / q)}" x2="${X(i / q)}" y1="${y}" y2="${y + 18}"/>`; continue; } s += `<line class="axis" x1="${X(i / q)}" x2="${X(i / q)}" y1="${y - 2}" y2="${y + 22}"/>`; if (q < 100 || i % 10 === 0) s += `<text class="val" x="${X(i / q)}" y="${y + 34}" text-anchor="middle">${L}${i}</text>`; }
+  });
+  s += `<line class="mark" x1="${X(.5)}" x2="${X(.5)}" y1="16" y2="196"/><text class="big" x="${X(.5) + 6}" y="204">Q2 = D5 = P50 = mediana</text>`;
+  return s + '</svg>';
+}
+function dotLine(d, o = {}){
+  const W = 640, ml = 30, mr = 30, s = sorted(d);
+  let lo = o.lo ?? s[0], hi = o.hi ?? s[s.length - 1]; const pad = (hi - lo) * .06 || 1; lo -= pad; hi += pad;
+  const X = v => ml + (v - lo) / (hi - lo) * (W - ml - mr);
+  const cnt = new Map(), pts = s.map(v => { const c = cnt.get(v) || 0; cnt.set(v, c + 1); return [v, c]; });
+  const top = 22 + (o.marks ? o.marks.length * 15 : 0), maxS = Math.max(...cnt.values()), base = top + maxS * 15 + 12, H = base + 32;
+  let t = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Datos en la recta numérica">`;
+  const st = niceStep(hi - lo);
+  for (let v = Math.ceil(lo / st) * st; v <= hi; v += st) t += `<line class="axis" x1="${X(v)}" x2="${X(v)}" y1="${base}" y2="${base + 5}"/><text x="${X(v)}" y="${base + 19}" text-anchor="middle">${fv(v)}</text>`;
+  t += `<line class="axis" x1="${ml}" x2="${W - mr}" y1="${base}" y2="${base}"/>`;
+  pts.forEach(([v, c]) => t += `<circle class="dot" cx="${X(v)}" cy="${base - 8 - c * 15}" r="6"><title>${fv(v)}</title></circle>`);
+  (o.marks || []).forEach((m, i) => { const y = 14 + i * 15; t += `<line class="mark" x1="${X(m.x)}" x2="${X(m.x)}" y1="${y + 3}" y2="${base}"/><text class="lbl" x="${X(m.x) + 5}" y="${y + 3}">${m.label}</text>`; });
+  return t + '</svg>';
+}
+/* Diagrama de caja: stage 0 puntos, 1 cinco números, 2 caja, 3 RIC, 4 cercas, 5 bigotes, 6 atípicos, 7 completo */
+function boxSVG(groups, o = {}){
+  const stage = o.stage ?? 7, W = 680, ml = 178, mr = 24, rowH = o.rowH || 120, top = 18;
+  const all = groups.flatMap(g => [...g.data, g.b.li, g.b.ls]);
+  let lo = o.lo ?? Math.min(...groups.flatMap(g => g.data)), hi = o.hi ?? Math.max(...groups.flatMap(g => g.data));
+  if (stage >= 4 && !o.lo){ lo = Math.min(lo, ...groups.map(g => g.b.li)); hi = Math.max(hi, ...groups.map(g => g.b.ls)); }
+  const pad = (hi - lo) * .05 || 1; lo -= pad; hi += pad;
+  const X = v => ml + (v - lo) / (hi - lo) * (W - ml - mr);
+  const H = top + groups.length * rowH + 42;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Diagrama de caja y bigotes">`;
+  const st = niceStep(hi - lo);
+  for (let v = Math.ceil(lo / st) * st; v <= hi; v += st) s += `<line class="grid" x1="${X(v)}" x2="${X(v)}" y1="${top}" y2="${H - 36}"/><text x="${X(v)}" y="${H - 20}" text-anchor="middle">${fv(v)}</text>`;
+  s += `<line class="axis" x1="${ml}" x2="${W - mr}" y1="${H - 36}" y2="${H - 36}"/>`;
+  if (o.xl) s += `<text class="lbl" x="${(ml + W - mr) / 2}" y="${H - 3}" text-anchor="middle">${o.xl}</text>`;
+  groups.forEach((g, gi) => {
+    const b = g.b, cy = top + gi * rowH + rowH / 2, bh = 34, y0 = cy - bh / 2, cls = gi ? 'box2' : 'box';
+    s += `<text class="lbl" x="${ml - 10}" y="${cy + 4}" text-anchor="end">${g.name}</text>`;
+    if (stage === 0 || stage === 1 || o.dots){
+      const cnt = new Map(); b.s.forEach(v => { const c = cnt.get(v) || 0; cnt.set(v, c + 1); s += `<circle class="dot" cx="${X(v)}" cy="${(stage <= 1 ? cy : cy + bh / 2 + 28) + c * 8}" r="${stage <= 1 ? 5.5 : 3.5}"><title>${fv(v)}</title></circle>`; });
+    }
+    if (stage === 1) [['Mín', b.min], ['Q1', b.q1], ['Me', b.me], ['Q3', b.q3], ['Máx', b.max]].forEach(([l, v], i) => s += `<line class="mark" x1="${X(v)}" x2="${X(v)}" y1="${cy - 30}" y2="${cy + 12}"/><text class="lbl" x="${X(v)}" y="${cy - 34 - (i % 2) * 13}" text-anchor="middle">${l} = ${fv(v)}</text>`);
+    if (stage >= 2){
+      s += `<rect class="${cls}" x="${X(b.q1)}" y="${y0}" width="${Math.max(1, X(b.q3) - X(b.q1))}" height="${bh}"/><line class="med" x1="${X(b.me)}" x2="${X(b.me)}" y1="${y0}" y2="${y0 + bh}"/>`;
+      if (stage <= 4 || o.labels) s += `<text class="val" x="${X(b.q1)}" y="${y0 - 6}" text-anchor="middle">Q1 ${fv(b.q1)}</text><text class="val" x="${X(b.me)}" y="${y0 + bh + 14}" text-anchor="middle">Me ${fv(b.me)}</text><text class="val" x="${X(b.q3)}" y="${y0 - 6}" text-anchor="middle">Q3 ${fv(b.q3)}</text>`;
+    }
+    if (stage === 3){ const yy = y0 - 22; s += `<line class="ric" x1="${X(b.q1)}" x2="${X(b.q3)}" y1="${yy}" y2="${yy}"/><line class="ric" x1="${X(b.q1)}" x2="${X(b.q1)}" y1="${yy - 5}" y2="${yy + 5}"/><line class="ric" x1="${X(b.q3)}" x2="${X(b.q3)}" y1="${yy - 5}" y2="${yy + 5}"/><text class="big" x="${(X(b.q1) + X(b.q3)) / 2}" y="${yy - 7}" text-anchor="middle">RIC = ${fv(b.ric)}</text>`; }
+    if (stage === 4 || (stage >= 4 && o.fences)){
+      s += `<line class="fence" x1="${X(b.li)}" x2="${X(b.li)}" y1="${y0 - 16}" y2="${y0 + bh + 16}"/><line class="fence" x1="${X(b.ls)}" x2="${X(b.ls)}" y1="${y0 - 16}" y2="${y0 + bh + 16}"/>`;
+      s += `<text class="val" x="${X(b.li)}" y="${y0 - 20}" text-anchor="middle">LI ${fv(b.li)}</text><text class="val" x="${X(b.ls)}" y="${y0 - 20}" text-anchor="middle">LS ${fv(b.ls)}</text>`;
+    }
+    if (stage >= 5){
+      s += `<line class="wh" x1="${X(b.wl)}" x2="${X(b.q1)}" y1="${cy}" y2="${cy}"/><line class="wh" x1="${X(b.q3)}" x2="${X(b.wh)}" y1="${cy}" y2="${cy}"/><line class="wh" x1="${X(b.wl)}" x2="${X(b.wl)}" y1="${cy - 10}" y2="${cy + 10}"/><line class="wh" x1="${X(b.wh)}" x2="${X(b.wh)}" y1="${cy - 10}" y2="${cy + 10}"/>`;
+      if (stage === 5 || o.labels) s += `<text class="val" x="${X(b.wl)}" y="${cy + 25}" text-anchor="middle">${fv(b.wl)}</text><text class="val" x="${X(b.wh)}" y="${cy + 25}" text-anchor="middle">${fv(b.wh)}</text>`;
+    }
+    if (stage >= 6) b.outs.forEach(v => { const far = b.far.includes(v); s += `<circle class="${far ? 'dotFar' : 'dotOut'}" cx="${X(v)}" cy="${cy}" r="6"><title>${far ? 'Atípico extremo' : 'Atípico'}: ${fv(v)}</title></circle><text class="val" x="${X(v)}" y="${cy - 11}" text-anchor="middle">${fv(v)}</text>`; });
+    if (o.mean){ const m = sum(g.data) / g.data.length; s += `<text class="big" x="${X(m)}" y="${cy + 5}" text-anchor="middle">×</text>`; }
+  });
+  return s + '</svg>';
+}
+function ogiveSVG(G, o = {}){
+  const W = 640, H = 330, m = { l: 54, r: 18, t: 18, b: 48 }, rows = G.rows;
+  const x0 = rows[0].LRi - G.A * .3, x1 = rows[rows.length - 1].LRs + G.A * .3;
+  const X = v => m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r), Y = p => H - m.b - p / 100 * (H - m.t - m.b);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Ojiva porcentual">`;
+  for (let p = 0; p <= 100; p += 25) s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${Y(p)}" y2="${Y(p)}"/><text x="${m.l - 8}" y="${Y(p) + 4}" text-anchor="end">${p}%</text>`;
+  const pts = [[rows[0].LRi, 0], ...rows.map(r => [r.LRs, r.Frp])];
+  pts.forEach(p => s += `<text x="${X(p[0])}" y="${H - m.b + 17}" text-anchor="middle">${fv(p[0])}</text>`);
+  s += `<polyline class="ogive" points="${pts.map(p => X(p[0]) + ',' + Y(p[1])).join(' ')}"/>`;
+  pts.forEach(p => s += `<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="4" fill="var(--blue)"><title>Menor que ${fv(p[0])}: ${f1(p[1])}%</title></circle>`);
+  (o.guides || []).forEach(g => { s += `<line class="guide" x1="${m.l}" x2="${X(g.x)}" y1="${Y(g.p)}" y2="${Y(g.p)}"/><line class="guide" x1="${X(g.x)}" x2="${X(g.x)}" y1="${Y(g.p)}" y2="${H - m.b}"/><circle class="gdot" cx="${X(g.x)}" cy="${Y(g.p)}" r="6"/><text class="big" x="${X(g.x) + 8}" y="${Y(g.p) + 16}">${g.label}</text>`; });
+  s += `<line class="axis" x1="${m.l}" x2="${W - m.r}" y1="${H - m.b}" y2="${H - m.b}"/><text class="lbl" x="${(m.l + W - m.r) / 2}" y="${H - 8}" text-anchor="middle">${o.xl || 'Límites reales'}</text>`;
+  return s + '</svg>';
+}
+
+/* ================= componentes ================= */
+function orderedHTML(d, hl = [], outs = []){
+  const s = sorted(d);
+  return `<div class="ordered" aria-label="Datos ordenados con su posición">${s.map((v, i) => `<span class="ord ${hl.includes(i + 1) ? 'hl' : ''} ${outs.includes(v) ? 'out' : ''}"><b>${fv(v)}</b><small>${i + 1}</small></span>`).join('')}</div><p class="note" style="margin:0">Número pequeño: posición del dato ordenado.</p>`;
+}
+const stat = items => `<div class="stats">${items.map(([l, v, k]) => `<div class="${k ? 'key' : ''}"><span>${l}</span><strong>${v}</strong></div>`).join('')}</div>`;
+function interpTxt(q){
+  if (q.out) return `La posición ${fv(q.L)} cae ${q.out === 'low' ? 'antes del primer' : 'después del último'} dato. Con este método no se puede calcular (Excel devuelve el error #¡NUM!); por convención se reporta el ${q.out === 'low' ? 'mínimo' : 'máximo'}, ${fv(q.v)}.`;
+  if (!q.frac) return `La posición es entera: el valor es directamente el dato ${q.j}, x<sub>(${q.j})</sub> = <strong>${fv(q.v)}</strong>.`;
+  return `x<sub>(${q.j})</sub> + ${fv(q.frac)} · (x<sub>(${q.j + 1})</sub> − x<sub>(${q.j})</sub>) = ${fv(q.a)} + ${fv(q.frac)} · (${fv(q.b)} − ${fv(q.a)}) = <strong>${fv(q.v)}</strong>`;
+}
+function calcBlock(d, t, k, method = 'EXC'){
+  const q = QN[t], p = k / q, n = d.length, Q = quant(d, p, method);
+  return `<div class="formula">${t}<sub>${k}</sub>: posición L = ${k} · (n + 1) / ${q} = ${k} · ${n + 1} / ${q} = <strong>${fv(Q.L)}</strong><br>${interpTxt(Q)}</div>`;
+}
+
+/* ================= stepper genérico ================= */
+const STEPPERS = {}, STEPS = {};
+function buildStepper(id){
+  const host = document.querySelector(`[data-stepper="${id}"]`);
+  host.innerHTML = `<div class="stepper"><div class="explain" aria-live="polite"><div class="stepcount" id="${id}Count"></div><h3 class="st" id="${id}Title"></h3><div id="${id}Body"></div><div class="dots" id="${id}Dots"></div><div class="ctrl"><button class="btn ghost" id="${id}Prev">Paso anterior</button><button class="btn" id="${id}Next">Siguiente paso</button></div></div><div class="viz" id="${id}Viz"></div></div>`;
+  const st = { i: 0 };
+  st.go = i => {
+    const steps = STEPS[id](); st.i = Math.max(0, Math.min(steps.length - 1, i)); const s = steps[st.i];
+    $(`#${id}Count`).textContent = `Paso ${st.i + 1} de ${steps.length}`; $(`#${id}Title`).textContent = s.t; $(`#${id}Body`).innerHTML = s.b();
+    $(`#${id}Dots`).innerHTML = steps.map((x, j) => `<button aria-label="Ir al paso ${j + 1}: ${x.t}" class="${j === st.i ? 'cur' : j < st.i ? 'done' : ''}" data-j="${j}">${j + 1}</button>`).join('');
+    $(`#${id}Dots`).querySelectorAll('button').forEach(b => b.onclick = () => st.go(+b.dataset.j));
+    $(`#${id}Prev`).disabled = st.i === 0; $(`#${id}Next`).disabled = st.i === steps.length - 1;
+    $(`#${id}Viz`).innerHTML = s.v(); s.after && s.after();
+  };
+  $(`#${id}Prev`).onclick = () => st.go(st.i - 1); $(`#${id}Next`).onclick = () => st.go(st.i + 1);
+  STEPPERS[id] = st;
+}
+
+/* ================= PARTE 1: no agrupados ================= */
+const who = () => ST.uOwn ? 'casos' : SC.who;
+const varName = () => ST.uOwn ? 'la variable' : `el ${SC.uShort}`;
+STEPS.u = () => {
+  const d = ST.u, n = d.length, s = sorted(d);
+  const Q1 = quant(d, .25), Q2 = quant(d, .5), Q3 = quant(d, .75), D3 = quant(d, .3), P90 = quant(d, .9);
+  const prv = ST.uOwn ? s[Math.floor(n * .6)] : SC.prVal, PR = prOf(d, prv);
+  return [
+    { t: '¿Qué es una medida de posición?', b: () => `<div class="def"><p>Las <strong>medidas de posición</strong> (o de localización relativa) indican la ubicación de un valor respecto a los demás datos del conjunto ordenado ${C('Triola, 2018')}.</p></div><p>La media y la desviación estándar describen al grupo; las medidas de posición responden otra pregunta: <em>¿dónde queda este caso dentro de su grupo?</em> Por ejemplo, ¿este ${ST.uOwn ? 'caso' : SC.one} puntuó más alto que la mayoría o está en el montón?</p><p>Todas se calculan sobre los datos <strong>ordenados</strong> de menor a mayor.</p>`,
+      v: () => `<p class="note">Datos en el orden en que se registraron</p><div class="ordered">${d.map(v => `<span class="ord"><b>${fv(v)}</b></span>`).join('')}</div>${dotLine(d)}` },
+    { t: 'Cuartiles, deciles y percentiles', b: () => `<div class="def"><p>Los <strong>cuartiles</strong> (Q<sub>1</sub>, Q<sub>2</sub>, Q<sub>3</sub>) son los tres valores que dividen los datos ordenados en cuatro partes con aproximadamente 25% de los casos cada una ${C('Triola, 2018')}.</p></div><div class="def"><p>Los <strong>deciles</strong> (D<sub>1</sub> a D<sub>9</sub>) son los nueve valores que dividen los datos ordenados en diez partes con aproximadamente 10% de los casos cada una ${C('Triola, 2018')}.</p></div><div class="def"><p>Los <strong>percentiles</strong> (P<sub>1</sub> a P<sub>99</sub>) son los 99 valores que dividen los datos ordenados en cien partes con aproximadamente 1% de los casos cada una ${C('Triola, 2018')}.</p></div><p>Son la misma idea con distinta resolución, así que hay equivalencias: Q<sub>1</sub> = P<sub>25</sub>, D<sub>3</sub> = P<sub>30</sub>, Q<sub>3</sub> = P<sub>75</sub>, y la <strong>mediana</strong> es Q<sub>2</sub> = D<sub>5</sub> = P<sub>50</sub>.</p>`,
+      v: () => rulerSVG() + `<div class="tscroll"><table class="t"><tr><th>Medida</th><th>Deja por debajo</th><th>Equivale a</th></tr><tr><td>Q<sub>1</sub></td><td>25%</td><td>P<sub>25</sub></td></tr><tr><td>D<sub>1</sub></td><td>10%</td><td>P<sub>10</sub></td></tr><tr><td>Q<sub>2</sub> = D<sub>5</sub></td><td>50%</td><td>P<sub>50</sub> (mediana)</td></tr><tr><td>D<sub>9</sub></td><td>90%</td><td>P<sub>90</sub></td></tr><tr><td>Q<sub>3</sub></td><td>75%</td><td>P<sub>75</sub></td></tr></table></div>` },
+    { t: 'Ordena los datos y numera su posición', b: () => `<p>El primer paso siempre es ordenar de menor a mayor y anotar la <strong>posición</strong> de cada dato: x<sub>(1)</sub> es el menor y x<sub>(${n})</sub> el mayor.</p><p>No confundas la <em>posición</em> (1, 2, 3…) con el <em>valor</em> (el puntaje). Las fórmulas primero encuentran una posición y después leen el valor que está en ella.</p>`,
+      v: () => orderedHTML(d) + stat([['n', n], ['Mínimo x₍₁₎', fv(s[0])], ['Máximo x₍ₙ₎', fv(s[n - 1])]]) },
+    { t: 'La fórmula de la posición', b: () => `<p>Para el k-ésimo cuantil de una división en q partes, la posición es:</p><div class="formula">L = k · (n + 1) / q<br>Cuartiles: q = 4 &nbsp;·&nbsp; Deciles: q = 10 &nbsp;·&nbsp; Percentiles: q = 100</div><p>Este procedimiento es la definición 6 de Hyndman y Fan ${C('1996')}, la que usan la función CUARTIL.EXC de Excel ${C('Microsoft, s. f.')} y, según esos autores, SPSS y Minitab.</p><p><strong>¿Por qué n + 1?</strong> Con n datos hay n + 1 «huecos» entre y alrededor de ellos; dividir n + 1 en partes iguales trata de forma simétrica a los extremos. Por eso, con ${n} datos, la mediana queda en la posición (${n} + 1) / 2 = ${fv((n + 1) / 2)}.</p>`,
+      v: () => orderedHTML(d) + `<div class="tscroll"><table class="t"><tr><th>Medida</th><th>Fórmula</th><th>Con n = ${n}</th></tr><tr><td>Q<sub>1</sub></td><td>1(n + 1)/4</td><td>${fv(posOf(n, .25))}</td></tr><tr><td>Q<sub>2</sub></td><td>2(n + 1)/4</td><td>${fv(posOf(n, .5))}</td></tr><tr><td>Q<sub>3</sub></td><td>3(n + 1)/4</td><td>${fv(posOf(n, .75))}</td></tr><tr><td>D<sub>3</sub></td><td>3(n + 1)/10</td><td>${fv(posOf(n, .3))}</td></tr><tr><td>P<sub>90</sub></td><td>90(n + 1)/100</td><td>${fv(posOf(n, .9))}</td></tr></table></div>` },
+    { t: 'Primer cuartil', b: () => `${calcBlock(d, 'Q', 1)}<p><strong>Interpretación:</strong> alrededor del 25% de los ${who()} obtuvo ${fv(Q1.v)} o menos en ${varName()}, y el 75% obtuvo más.</p>`,
+      v: () => orderedHTML(d, Q1.frac ? [Q1.j, Q1.j + 1] : [Q1.j]) + dotLine(d, { marks: [{ x: Q1.v, label: `Q1 = ${fv(Q1.v)}` }] }) },
+    { t: 'Mediana y tercer cuartil', b: () => `${calcBlock(d, 'Q', 2)}${calcBlock(d, 'Q', 3)}<p><strong>Interpretación:</strong> la mitad de los ${who()} queda por debajo de ${fv(Q2.v)} y la cuarta parte con puntajes más altos obtuvo más de ${fv(Q3.v)}.</p><p>Entre Q<sub>1</sub> y Q<sub>3</sub> está el 50% central del grupo: los casos «típicos».</p>`,
+      v: () => orderedHTML(d, [Q2.j, Q2.frac ? Q2.j + 1 : 0, Q3.j, Q3.frac ? Q3.j + 1 : 0].filter(Boolean)) + dotLine(d, { marks: [{ x: Q1.v, label: `Q1 ${fv(Q1.v)}` }, { x: Q2.v, label: `Me ${fv(Q2.v)}` }, { x: Q3.v, label: `Q3 ${fv(Q3.v)}` }] }) },
+    { t: 'Cuando la posición no es entera: interpola', b: () => `<p>Para el tercer decil:</p>${calcBlock(d, 'D', 3)}<p>Si L tiene decimales, el valor está <em>entre</em> dos datos. Toma el dato de la parte entera de L y avanza la fracción decimal de la distancia hacia el siguiente:</p><div class="formula">valor = x<sub>(j)</sub> + d · (x<sub>(j+1)</sub> − x<sub>(j)</sub>)<br>j = parte entera de L &nbsp;·&nbsp; d = parte decimal de L</div><p>Un error común es redondear L y tomar un solo dato: produce valores distintos a los de los programas estadísticos.</p>`,
+      v: () => orderedHTML(d, D3.frac ? [D3.j, D3.j + 1] : [D3.j]) + stat([['L', fv(D3.L)], ['j', D3.j], ['d', fv(D3.frac)], ['D₃', fv(D3.v), 1]]) },
+    { t: 'Un percentil alto', b: () => `${calcBlock(d, 'P', 90)}<p><strong>Interpretación:</strong> el 10% de los ${who()} con puntajes más altos obtuvo más de ${fv(P90.v)}.</p><p class="note">Con muestras pequeñas los percentiles extremos dependen de uno o dos datos: aquí P<sub>90</sub> se calcula entre los dos puntajes más altos. Por eso los baremos se construyen con muestras grandes.</p>`,
+      v: () => orderedHTML(d, P90.frac ? [P90.j, P90.j + 1] : [P90.j]) + dotLine(d, { marks: [{ x: P90.v, label: `P90 = ${fv(P90.v)}` }] }) },
+    { t: 'El camino inverso: rango percentil', b: () => `<div class="def"><p>El <strong>rango percentil</strong> de un puntaje es el porcentaje de casos del grupo que obtuvieron puntajes menores que él ${C('Pagano, 2011')}.</p></div><p>Hasta aquí fuimos de un porcentaje a un puntaje. El rango percentil va al revés: de un puntaje a un porcentaje. Con el método de la posición (n + 1) se obtiene dividiendo la posición del dato entre n + 1:</p><div class="formula">RP = posición / (n + 1) × 100<br>Puntaje ${fv(prv)}: ${PR.exact ? `ocupa la posición ${PR.pos}` : `está entre ${fv(PR.a)} y ${fv(PR.b)}: posición interpolada ${fv(PR.pos)}`} → RP = ${fv(PR.pos)} / ${n + 1} × 100 = <strong>${f1(PR.pr)}</strong></div><p>Es exactamente lo que calcula RANGO.PERCENTIL.EXC en Excel. <strong>Interpretación:</strong> un ${ST.uOwn ? 'caso' : SC.one} con ${fv(prv)} puntos supera aproximadamente al ${f1(PR.pr)}% del grupo.</p>`,
+      v: () => orderedHTML(d, PR.exact ? [PR.pos] : [Math.floor(PR.pos), Math.ceil(PR.pos)]) + `<div class="calcrow"><label>Puntaje a ubicar<input id="prIn" type="number" step="any" value="${fv(prv)}"></label></div><div id="prOut" class="formula"></div>`,
+      after: () => { const run = () => { const x = num($('#prIn').value); if (isNaN(x)) return; const P = prOf(d, x); $('#prOut').innerHTML = `Posición ${fv(P.pos)} → RP = ${fv(P.pos)} / ${n + 1} × 100 = <strong>${f1(P.pr)}</strong>${P.clamp ? '<br><span class="note">El puntaje está fuera del rango de los datos; se reporta el rango percentil del extremo.</span>' : ''}`; }; $('#prIn').oninput = run; run(); } },
+    { t: 'Calculadora: prueba con cualquier cuantil', b: () => `<p>Elige el tipo de cuantil y su número. La calculadora muestra la posición, los dos datos que intervienen y la interpolación.</p><p>Comprueba las equivalencias: Q<sub>1</sub> y P<sub>25</sub> dan lo mismo; D<sub>5</sub>, Q<sub>2</sub> y P<sub>50</sub> también.</p>`,
+      v: () => `<div class="calcrow"><label>Tipo<select id="cT"><option value="Q">Cuartil</option><option value="D">Decil</option><option value="P">Percentil</option></select></label><label>Número k<input id="cK" type="number" min="1" step="1"></label></div><div id="cOut"></div>`,
+      after: () => { $('#cT').value = ST.calc.t; $('#cK').value = ST.calc.k;
+        const run = () => { const t = $('#cT').value, q = QN[t]; let k = Math.round(num($('#cK').value)); $('#cK').max = q - 1; if (isNaN(k) || k < 1 || k >= q){ $('#cOut').innerHTML = `<p class="msg bad">Para ${QW[t]}es k va de 1 a ${q - 1}.</p>`; return; } ST.calc = { t, k }; const Q = quant(d, k / q); $('#cOut').innerHTML = calcBlock(d, t, k) + orderedHTML(d, Q.frac ? [Q.j, Q.j + 1] : [Q.j]) + dotLine(d, { marks: [{ x: Q.v, label: `${t}${k} = ${fv(Q.v)}` }] }); };
+        $('#cT').onchange = run; $('#cK').oninput = run; run(); } },
+    { t: '¿Por qué distintos libros dan resultados distintos?', b: () => `<p>No existe una única fórmula para los cuantiles de una muestra: Hyndman y Fan ${C('1996')} compararon nueve definiciones usadas por programas estadísticos. Con muestras pequeñas pueden diferir; con muestras grandes casi coinciden.</p><ul><li><strong>Posición (n + 1)</strong>: la de esta guía. Excel: CUARTIL.EXC y PERCENTIL.EXC.</li><li><strong>Posición 1 + (n − 1)·p</strong>: Excel: CUARTIL.INC, PERCENTIL.INC y la antigua CUARTIL.</li><li><strong>Localizador L = (k/100)·n</strong> que propone Triola ${C('2018')}: si L es entero se promedian los datos L y L + 1; si no, se redondea L hacia arriba y se toma ese dato.</li></ul><p><strong>Regla práctica:</strong> no hay un método «correcto»; reporta cuál usaste y no mezcles métodos al comparar grupos. Las celdas en rojo difieren del método (n + 1).</p>`,
+      v: () => { const rows = [['Q₁', .25], ['Mediana', .5], ['Q₃', .75], ['D₃', .3], ['P₉₀', .9]]; return `<div class="tscroll"><table class="t"><tr><th class="l">Medida</th><th>(n + 1)<br><small>.EXC</small></th><th>1 + (n − 1)p<br><small>.INC</small></th><th>Triola<br><small>L = p · n</small></th></tr>${rows.map(([l, p]) => { const a = quant(d, p).v, b = quant(d, p, 'INC').v, c = quant(d, p, 'TRI').v; return `<tr><td class="l">${l}</td><td>${fv(a)}</td><td class="${Math.abs(a - b) > 1e-9 ? 'diff' : ''}">${fv(b)}</td><td class="${Math.abs(a - c) > 1e-9 ? 'diff' : ''}">${fv(c)}</td></tr>`; }).join('')}</table></div>`; } },
+    { t: 'Aplicación e interpretación crítica', b: () => (ST.uOwn ? '<p><strong>Para qué sirve.</strong> Los percentiles permiten ubicar a un caso dentro de su grupo de referencia y comparar posiciones relativas entre instrumentos con escalas distintas.</p>' : SC.applyU) + (ST.uOwn ? '' : SC.critU),
+      v: () => stat([['Q₁', fv(Q1.v)], ['Mediana', fv(Q2.v)], ['Q₃', fv(Q3.v)], ['D₃', fv(D3.v)], ['P₉₀', fv(P90.v), 1]]) + dotLine(d, { marks: [{ x: Q1.v, label: 'Q1' }, { x: Q2.v, label: 'Me' }, { x: Q3.v, label: 'Q3' }, { x: P90.v, label: 'P90' }] }) }
+  ];
+};
+
+/* ================= PARTE 2: agrupados ================= */
+const gWho = () => ST.gOwn ? 'casos' : SC.gWho;
+function gTable(G, hl = -1, extra){
+  return `<div class="tscroll"><table class="t"><tr><th>Clase</th><th>Límites reales</th><th>f<sub>i</sub></th><th>F<sub>i</sub></th><th>Fr<sub>i</sub>%</th>${extra ? '<th>Posición cubierta</th>' : ''}</tr>${G.rows.map((r, i) => `<tr class="${i === hl ? 'row-hl' : ''}"><td>${fv(r.Li)} – ${fv(r.Ls)}</td><td>${fv(r.LRi)} – ${fv(r.LRs)}</td><td>${r.fi}</td><td>${r.Fi}</td><td>${f1(r.Frp)}</td>${extra ? `<td>${i ? G.rows[i - 1].Fi : 0} a ${r.Fi}</td>` : ''}</tr>`).join('')}<tr><td><strong>Total</strong></td><td></td><td><strong>${G.n}</strong></td><td></td><td></td>${extra ? '<td></td>' : ''}</tr></table></div>`;
+}
+function gCalc(G, t, k){
+  const q = QN[t], Q = gq(G, k / q), r = Q.r;
+  return `<div class="formula">Posición: ${k} · n / ${q} = ${k} · ${G.n} / ${q} = <strong>${fv(Q.pos)}</strong><br>Clase ${t}<sub>${k}</sub>: la primera con F<sub>i</sub> ≥ ${fv(Q.pos)} → <strong>${fv(r.Li)}–${fv(r.Ls)}</strong> (F<sub>i</sub> = ${r.Fi})<br>${t}<sub>${k}</sub> = ${fv(r.LRi)} + [(${fv(Q.pos)} − ${Q.Fp}) / ${r.fi}] · ${fv(G.A)} = ${fv(r.LRi)} + ${f2((Q.pos - Q.Fp) / r.fi * G.A)} = <strong>${f2(Q.v)}</strong></div>`;
+}
+STEPS.g = () => {
+  const G = ST.g, n = G.n, xl = ST.gOwn ? 'Límites reales' : `Puntaje ${SC.gShort} (límites reales)`;
+  const q1 = gq(G, .25), q3 = gq(G, .75), d9 = gq(G, .9), p10 = gq(G, .1);
+  const prx = ST.gOwn ? Math.round((G.min + G.max) / 2) : SC.gPr, PR = gpr(G, prx);
+  return [
+    { t: 'Parte de la tabla de frecuencias', b: () => `<p>Con datos agrupados ya no ves cada puntaje, solo cuántos casos hay en cada clase. Necesitas los <strong>límites reales</strong>, la frecuencia f<sub>i</sub> y la frecuencia acumulada F<sub>i</sub>.</p><p>Aquí n = ${n}, k = ${G.k} clases y amplitud A = ${fv(G.A)}. La última columna muestra qué posiciones (del caso 1 al ${n}) cubre cada clase: esa es la clave del método.</p>`,
+      v: () => gTable(G, -1, true) },
+    { t: 'La fórmula de interpolación', b: () => `<p>Se supone que los casos de cada clase se reparten de manera uniforme entre sus límites reales. Así, el k-ésimo cuantil se obtiene por interpolación lineal dentro de la clase que lo contiene ${C('Pagano, 2011')}:</p><div class="formula">Q<sub>k</sub>, D<sub>k</sub> o P<sub>k</sub> = L<sub>i</sub> + [(k · n / q − F<sub>i−1</sub>) / f<sub>i</sub>] · A</div><ul><li><strong>k · n / q:</strong> posición buscada (q = 4, 10 o 100). Con datos agrupados se usa n, no n + 1.</li><li><strong>L<sub>i</sub>:</strong> límite real inferior de la clase que contiene esa posición.</li><li><strong>F<sub>i−1</sub>:</strong> frecuencia acumulada de la clase anterior.</li><li><strong>f<sub>i</sub>:</strong> frecuencia de la clase.</li><li><strong>A:</strong> amplitud.</li></ul><p>Es la misma lógica de la mediana agrupada: la mediana es el caso k = 2 de los cuartiles.</p>`,
+      v: () => gTable(G) },
+    { t: 'Primer cuartil', b: () => `${gCalc(G, 'Q', 1)}<p>La lógica: antes de la clase ya hay ${q1.Fp} casos; faltan ${fv(q1.pos - q1.Fp)} para llegar a la posición ${fv(q1.pos)}, que son esa fracción de los ${q1.r.fi} casos de la clase. Se avanza la misma fracción de su ancho.</p><p><strong>Interpretación:</strong> alrededor del 25% de los ${gWho()} obtuvo menos de ${f2(q1.v)}.</p>`,
+      v: () => gTable(G, q1.i, true) },
+    { t: 'Tercer cuartil', b: () => `${gCalc(G, 'Q', 3)}<p><strong>Interpretación:</strong> el 25% de los ${gWho()} con más síntomas superó ${f2(q3.v)} puntos.</p><p>El rango intercuartílico es Q<sub>3</sub> − Q<sub>1</sub> = ${f2(q3.v)} − ${f2(q1.v)} = <strong>${f2(q3.v - q1.v)}</strong>: el ancho del 50% central.</p>`,
+      v: () => gTable(G, q3.i, true) },
+    { t: 'Deciles y percentiles', b: () => `<p>Se usa la misma fórmula, cambiando q:</p>${gCalc(G, 'D', 9)}${gCalc(G, 'P', 10)}<p><strong>Interpretación:</strong> el 10% más bajo quedó por debajo de ${f2(p10.v)} y el 10% más alto por encima de ${f2(d9.v)}. El 80% central se ubica entre esos dos valores.</p>`,
+      v: () => gTable(G, d9.i, true) },
+    { t: 'Lo mismo, leído en la ojiva', b: () => `<p>La fórmula de interpolación es exactamente lo que harías con la <strong>ojiva porcentual</strong>: ubicas el porcentaje en el eje vertical, avanzas hasta la curva y bajas al eje horizontal.</p><p>La ojiva une con rectas los puntos (límite real superior, Fr<sub>i</sub>%), y la fórmula supone esa misma recta dentro de cada clase. Por eso ambos métodos dan el mismo resultado.</p>`,
+      v: () => ogiveSVG(G, { xl, guides: [{ x: q1.v, p: 25, label: `Q1 ≈ ${f1(q1.v)}` }, { x: q3.v, p: 75, label: `Q3 ≈ ${f1(q3.v)}` }, { x: d9.v, p: 90, label: `D9 ≈ ${f1(d9.v)}` }] }) },
+    { t: 'Rango percentil con datos agrupados', b: () => `<p>Para saber qué porcentaje del grupo queda por debajo de un puntaje X ${C('Pagano, 2011')}:</p><div class="formula">RP = [F<sub>i−1</sub> + ((X − L<sub>i</sub>) / A) · f<sub>i</sub>] / n × 100</div><p>Con X = ${fv(prx)}, que cae en la clase ${fv(PR.r.Li)}–${fv(PR.r.Ls)}:</p><div class="formula">RP = [${PR.Fp} + ((${fv(prx)} − ${fv(PR.r.LRi)}) / ${fv(G.A)}) · ${PR.r.fi}] / ${n} × 100 = [${PR.Fp} + ${f2(PR.cum - PR.Fp)}] / ${n} × 100 = <strong>${f1(PR.pr)}</strong></div><p><strong>Interpretación:</strong> ${ST.gOwn ? 'un caso' : SC.gArt} con ${fv(prx)} puntos supera aproximadamente al ${f1(PR.pr)}% del grupo.</p>`,
+      v: () => gTable(G, PR.i) + ogiveSVG(G, { xl, guides: [{ x: prx, p: PR.pr, label: `RP ≈ ${f1(PR.pr)}` }] }) },
+    { t: 'Calculadora y comparación con los datos crudos', b: () => `<p>Elige cualquier cuantil. Abajo se compara con el que se obtiene de los ${n} datos originales con el método (n + 1).</p><p>La diferencia es el costo de agrupar: con la tabla solo se conoce cuántos casos hay en cada clase, no dónde están dentro de ella.</p>`,
+      v: () => `<div class="calcrow"><label>Tipo<select id="gT"><option value="Q">Cuartil</option><option value="D">Decil</option><option value="P">Percentil</option></select></label><label>Número k<input id="gK" type="number" min="1" step="1"></label></div><div id="gOut"></div>`,
+      after: () => { $('#gT').value = ST.gcalc.t; $('#gK').value = ST.gcalc.k;
+        const run = () => { const t = $('#gT').value, q = QN[t]; const k = Math.round(num($('#gK').value)); if (isNaN(k) || k < 1 || k >= q){ $('#gOut').innerHTML = `<p class="msg bad">Para ${QW[t]}es k va de 1 a ${q - 1}.</p>`; return; } ST.gcalc = { t, k }; const Q = gq(G, k / q), raw = quant(G.data, k / q); $('#gOut').innerHTML = gCalc(G, t, k) + stat([['Agrupado', f2(Q.v), 1], ['Datos crudos (n + 1)', fv(raw.v)], ['Diferencia', f2(Q.v - raw.v)]]) + gTable(G, Q.i); };
+        $('#gT').onchange = run; $('#gK').oninput = run; run(); } },
+    { t: 'Interpretación aplicada', b: () => `<p>${ST.gOwn ? 'Los deciles extremos permiten identificar a la décima parte del grupo con valores más bajos o más altos.' : SC.applyG}</p><p><strong>Cuidados:</strong></p><ul><li>El cuantil agrupado es una aproximación: depende de cómo se armaron las clases.</li><li>Un punto de corte basado en el D<sub>9</sub> de <em>esta</em> muestra es una regla interna del servicio, no un criterio clínico validado.</li><li>Si la distribución es muy asimétrica, la clase con el D<sub>9</sub> puede ser muy ancha y la interpolación menos precisa.</li></ul>`,
+      v: () => stat([['P₁₀', f2(p10.v)], ['Q₁', f2(q1.v)], ['Mediana', f2(gq(G, .5).v)], ['Q₃', f2(q3.v)], ['D₉', f2(d9.v), 1]]) + ogiveSVG(G, { xl, guides: [{ x: p10.v, p: 10, label: 'P10' }, { x: gq(G, .5).v, p: 50, label: 'Me' }, { x: d9.v, p: 90, label: 'D9' }] }) }
+  ];
+};
+
+/* ================= PARTE 3: caja y bigotes ================= */
+STEPS.b = () => {
+  const d = ST.u, B = box(d), n = d.length, xl = ST.uOwn ? 'Valor' : `Puntaje ${SC.uShort}`;
+  const G1 = [{ name: ST.uOwn ? 'Tus datos' : SC.gA, data: d, b: B }];
+  const cmpOK = !ST.uOwn, G2 = cmpOK ? [...G1, { name: SC.gB, data: SC.cmp, b: box(SC.cmp) }] : G1;
+  const shp = shape(B);
+  const outTxt = B.outs.length ? `${B.outs.map(fv).join(', ')}` : 'ninguno';
+  const cmpB = cmpOK ? box(SC.cmp) : null;
+  // ejemplos de forma
+  const ex = { sym: [5, 8, 9, 10, 11, 11, 12, 12, 13, 13, 14, 15, 16, 19], pos: [5, 6, 6, 7, 7, 8, 8, 9, 10, 12, 14, 17, 21, 24], neg: [6, 9, 13, 16, 18, 19, 20, 20, 21, 21, 22, 22, 23, 24] };
+  const bimA = [10, 11, 11, 12, 12, 13, 13, 27, 28, 28, 29, 29, 30, 31], bimB = [11, 14, 15, 17, 18, 19, 20, 20, 21, 22, 23, 25, 26, 30];
+  return [
+    { t: '¿Qué es un diagrama de caja y bigotes?', b: () => `<div class="def"><p>El <strong>diagrama de caja y bigotes</strong> (boxplot) es una gráfica que representa el resumen de cinco números de un conjunto de datos: mínimo, primer cuartil, mediana, tercer cuartil y máximo, y señala por separado los valores atípicos ${C('Tukey, 1977')}.</p></div><p>Fue propuesto por John Tukey como parte del análisis exploratorio de datos. Su fuerza es que muestra en una sola línea el centro, la dispersión, la asimetría y los casos extremos, y permite comparar varios grupos lado a lado.</p><p>${cmpOK ? SC.cmpIntro : ''}</p>`,
+      v: () => boxSVG(G2, { stage: 7, xl, labels: false }) + '<p class="note">Así se verá al final. Ahora lo construiremos paso a paso con el primer grupo.</p>' },
+    { t: 'Calcula el resumen de cinco números', b: () => `<p>Ordena los datos y calcula con el método (n + 1) de la parte 1:</p><div class="formula">Mínimo = ${fv(B.min)}<br>Q<sub>1</sub>: posición ${fv(posOf(n, .25))} → ${fv(B.q1)}<br>Mediana: posición ${fv(posOf(n, .5))} → ${fv(B.me)}<br>Q<sub>3</sub>: posición ${fv(posOf(n, .75))} → ${fv(B.q3)}<br>Máximo = ${fv(B.max)}</div>`,
+      v: () => orderedHTML(d, [Math.floor(posOf(n, .25)), Math.floor(posOf(n, .5)), Math.floor(posOf(n, .75))]) + boxSVG(G1, { stage: 1, xl }) },
+    { t: 'Traza la escala y la caja', b: () => `<ol><li>Dibuja un eje con la escala de la variable que cubra todos los datos.</li><li>Dibuja un rectángulo que vaya de Q<sub>1</sub> (${fv(B.q1)}) a Q<sub>3</sub> (${fv(B.q3)}). Su altura no significa nada; solo debe ser igual para todos los grupos.</li><li>Traza una línea dentro de la caja en la mediana (${fv(B.me)}).</li></ol><p>La caja contiene al 50% central de los ${who()}.</p>`,
+      v: () => boxSVG(G1, { stage: 2, xl, dots: true }) },
+    { t: 'Calcula el rango intercuartílico', b: () => `<div class="def"><p>El <strong>rango intercuartílico</strong> (RIC) es la diferencia Q<sub>3</sub> − Q<sub>1</sub>; mide la dispersión del 50% central de los datos ${C('Triola, 2018')}.</p></div><div class="formula">RIC = Q<sub>3</sub> − Q<sub>1</sub> = ${fv(B.q3)} − ${fv(B.q1)} = <strong>${fv(B.ric)}</strong></div><p>Es el largo de la caja. A diferencia del rango (máx − mín), no se altera por un solo caso extremo: es una medida de dispersión <strong>robusta</strong>.</p>`,
+      v: () => boxSVG(G1, { stage: 3, xl }) },
+    { t: 'Calcula las cercas', b: () => `<p>Las <strong>cercas</strong> (o barreras) son límites que no se dibujan en la versión final, pero sirven para decidir qué datos son atípicos. Tukey ${C('1977')} las definió a 1.5 RIC de la caja:</p><div class="formula">Cerca inferior LI = Q<sub>1</sub> − 1.5 · RIC = ${fv(B.q1)} − 1.5 · ${fv(B.ric)} = <strong>${fv(B.li)}</strong><br>Cerca superior LS = Q<sub>3</sub> + 1.5 · RIC = ${fv(B.q3)} + 1.5 · ${fv(B.ric)} = <strong>${fv(B.ls)}</strong></div><p>Las <strong>cercas externas</strong>, a 3 RIC (${fv(B.le)} y ${fv(B.lse)}), separan a los atípicos <em>extremos</em>.</p>`,
+      v: () => boxSVG(G1, { stage: 4, xl, dots: true }) },
+    { t: 'Dibuja los bigotes', b: () => `<p>Cada bigote va desde la caja hasta el dato <strong>más extremo que sigue dentro de las cercas</strong>, no hasta la cerca misma ${C('Tukey, 1977')}:</p><div class="formula">Bigote inferior: el menor dato ≥ ${fv(B.li)} → <strong>${fv(B.wl)}</strong><br>Bigote superior: el mayor dato ≤ ${fv(B.ls)} → <strong>${fv(B.wh)}</strong></div><p>Si no hay atípicos, los bigotes llegan al mínimo y al máximo. Cada bigote abarca al ~25% de los casos de su lado.</p>`,
+      v: () => boxSVG(G1, { stage: 5, xl, dots: true }) },
+    { t: 'Marca los valores atípicos', b: () => `<div class="def"><p>Un <strong>valor atípico</strong> (outlier) es un dato que queda fuera de las cercas, es decir, por debajo de Q<sub>1</sub> − 1.5 RIC o por encima de Q<sub>3</sub> + 1.5 RIC ${C('Tukey, 1977')}.</p></div><p>Aquí: <strong>${outTxt}</strong>.${B.far.length ? ` De ellos, ${B.far.map(fv).join(', ')} queda fuera de las cercas externas: atípico extremo (círculo relleno).` : ''} Se dibujan como puntos individuales.</p>${!ST.uOwn ? `<p><strong>En la práctica:</strong> ${KEY === 'clin' ? `un ${SC.one} con un puntaje atípico alto no es un «error» que deba borrarse: puede ser alguien en crisis que necesita atención prioritaria. Antes de excluirlo, verifica la captura y revisa el caso.` : `un puntaje atípico puede deberse a un error de calificación, a una forma de responder poco válida (simulación o minimización) o a un caso realmente distinto. En un peritaje se revisa el caso; nunca se elimina para que el grupo «se vea mejor».`}</p>` : ''}`,
+      v: () => boxSVG(G1, { stage: 6, xl, fences: true }) + orderedHTML(d, [], B.outs) },
+    { t: 'Diagrama terminado y su lectura', b: () => `<p>El diagrama final muestra caja, mediana, bigotes y atípicos; las cercas no se dibujan. Cómo leerlo:</p><ul><li><strong>Centro:</strong> la mediana, ${fv(B.me)}.</li><li><strong>Dispersión:</strong> el largo de la caja (RIC = ${fv(B.ric)}) y de los bigotes.</li><li><strong>Forma:</strong> si la mediana está cargada hacia un lado de la caja y un bigote es más largo que el otro, hay asimetría. Aquí: ${shp.txt}.</li><li><strong>Casos extremos:</strong> ${outTxt}.</li></ul><p class="note">Algunos programas agregan la media con una ×; aquí está marcada para compararla con la mediana.</p>`,
+      v: () => boxSVG(G1, { stage: 7, xl, labels: true, mean: true }) + stat([['Mín', fv(B.min)], ['Q₁', fv(B.q1)], ['Me', fv(B.me), 1], ['Q₃', fv(B.q3)], ['Máx', fv(B.max)], ['RIC', fv(B.ric)]]) },
+    { t: 'Reconoce la forma de la distribución', b: () => `<p>Compara la posición de la mediana dentro de la caja y el largo de los bigotes:</p><ul><li><strong>Simétrica:</strong> mediana al centro de la caja y bigotes parecidos.</li><li><strong>Asimetría positiva:</strong> mediana cerca de Q<sub>1</sub> y bigote superior largo. Es lo habitual en escalas de síntomas aplicadas a población general: la mayoría puntúa bajo y pocos muy alto.</li><li><strong>Asimetría negativa:</strong> mediana cerca de Q<sub>3</sub> y bigote inferior largo; por ejemplo, calificaciones de un examen fácil o escalas de satisfacción.</li></ul>`,
+      v: () => boxSVG([{ name: 'Simétrica', data: ex.sym, b: box(ex.sym) }, { name: 'Asim. positiva', data: ex.pos, b: box(ex.pos) }, { name: 'Asim. negativa', data: ex.neg, b: box(ex.neg) }], { stage: 7, rowH: 80, dots: true, xl: 'Valores ilustrativos' }) },
+    { t: 'Compara grupos', b: () => cmpOK ? `<p>La mayor utilidad del diagrama es comparar grupos en la misma escala.</p>${KEY === 'clin'
+        ? `<ul><li><strong>Centro:</strong> la mediana bajó de ${fv(B.me)} a ${fv(cmpB.me)} puntos.</li><li><strong>Superposición:</strong> ${cmpB.q3 < B.q1 ? 'la caja posterior queda completamente por debajo de la inicial: tres cuartas partes de los pacientes terminaron por debajo del Q₁ inicial.' : cmpB.q3 < B.me ? `el Q₃ posterior (${fv(cmpB.q3)}) es menor que la mediana inicial: el 75% de los pacientes terminó por debajo de donde estaba la mitad al inicio.` : 'las cajas se superponen bastante.'}</li><li><strong>Dispersión:</strong> el RIC pasó de ${fv(B.ric)} a ${fv(cmpB.ric)}.</li><li><strong>Atípicos:</strong> ${cmpB.outs.length ? `${cmpB.outs.map(fv).join(', ')} sigue alejado del grupo: es el caso que conviene revisar en supervisión, porque no respondió como los demás.` : 'no hay atípicos al final.'}</li></ul><p class="note">Ojo: estas son dos mediciones de las mismas personas. El diagrama describe el cambio del grupo; no prueba que la terapia lo causara (no hay grupo control).</p>`
+        : `<ul><li><strong>Centro:</strong> la mediana del grupo con reincidencia (${fv(cmpB.me)}) es mayor que la del grupo sin reincidencia (${fv(B.me)}).</li><li><strong>Superposición:</strong> las cajas ${cmpB.q1 <= B.q3 ? `se superponen entre ${fv(cmpB.q1)} y ${fv(B.q3)}: hay internos de ambos grupos con puntajes iguales.` : 'no se superponen.'}</li><li><strong>Dispersión:</strong> RIC de ${fv(B.ric)} sin reincidencia y de ${fv(cmpB.ric)} con reincidencia.</li></ul><p><strong>Lectura crítica:</strong> que los grupos difieran en promedio no permite clasificar a una persona. Con esta superposición, un puntaje de ${fv(Math.round((cmpB.q1 + B.q3) / 2))} aparece en ambos grupos: por eso el HCR-20 no se usa como prueba de corte, sino como guía para un juicio estructurado.</p>`}`
+      : '<p>Con datos propios solo hay un grupo. Vuelve al ejemplo para ver la comparación entre dos grupos.</p>',
+      v: () => boxSVG(G2, { stage: 7, xl, labels: true }) },
+    { t: 'Cuidados al construir e interpretar', b: () => `<ul><li><strong>Distintos programas, distintas cajas.</strong> Tukey usaba «bisagras» (hinges), que no siempre coinciden con los cuartiles; los programas calculan los cuartiles de varias formas ${C('Frigge et al., 1989')}. Con muestras pequeñas la caja puede cambiar según el programa.</li><li><strong>Oculta la forma fina.</strong> Dos grupos pueden tener cajas parecidas y distribuciones muy distintas; un grupo con dos subgrupos (bimodal) no se nota en la caja. Por eso conviene mostrar también los puntos o un histograma ${C('McGill et al., 1978')}.</li><li><strong>Atípico no significa error</strong> ni patología: es un criterio estadístico para revisar el caso.</li><li><strong>Muestras pequeñas:</strong> con menos de 10 casos, cuartiles y cercas son muy inestables.</li></ul>`,
+      v: () => `<p class="note">Dos grupos con cajas parecidas: el primero tiene dos subgrupos que la caja no muestra.</p>` + boxSVG([{ name: 'Grupo bimodal', data: bimA, b: box(bimA) }, { name: 'Grupo unimodal', data: bimB, b: box(bimB) }], { stage: 7, dots: true, rowH: 100, xl: 'Valores ilustrativos' }) }
+  ];
+};
+
+/* ================= PARTE 4: Excel ================= */
+const XLSX = { clin: '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', for: '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' };
+function xlCopyBtn(t){ return `<button class="copy" data-copy="${t.replace(/"/g, '&quot;')}">Copiar</button>`; }
+function renderExcel(){
+  const d = ST.u, n = d.length, last = n + 1, R = `A2:A${last}`, B = box(d), m = ST.xlMode, xl = ST.uOwn ? 'Datos' : `Puntaje ${SC.uShort}`;
+  const fn = m === 'EXC' ? 'EXC' : 'INC';
+  const prv = ST.uOwn ? sorted(d)[Math.floor(n * .6)] : SC.prVal;
+  const PRexc = prOf(d, prv).pr / 100;
+  const PRinc = (() => { const s = sorted(d); const i = s.findIndex(v => v >= prv); if (s[i] === prv) return i / (n - 1); const pos = (i - 1) + (prv - s[i - 1]) / (s[i] - s[i - 1]); return pos / (n - 1); })();
+  const trunc3 = x => Math.floor(x * 1000 + 1e-9) / 1000;
+  const rows = [
+    ['n (número de datos)', `=CONTAR(${R})`, n],
+    ['Mínimo', `=MIN(${R})`, B.min],
+    ['Primer cuartil Q₁', `=CUARTIL.${fn}(${R},1)`, quant(d, .25, m).v],
+    ['Mediana', `=MEDIANA(${R})`, quant(d, .5).v],
+    ['Tercer cuartil Q₃', `=CUARTIL.${fn}(${R},3)`, quant(d, .75, m).v],
+    ['Máximo', `=MAX(${R})`, B.max],
+    ['Decil 3 (D₃)', `=PERCENTIL.${fn}(${R},0.3)`, quant(d, .3, m).v],
+    ['Decil 9 (D₉)', `=PERCENTIL.${fn}(${R},0.9)`, quant(d, .9, m).v],
+    ['Percentil 90 (P₉₀)', `=PERCENTIL.${fn}(${R},90/100)`, quant(d, .9, m).v],
+    [`Rango percentil de ${fv(prv)}`, `=RANGO.PERCENTIL.${fn}(${R},${fv(prv)})`, (m === 'EXC' ? PRexc : PRinc), 4]
+  ];
+  const Bx = m === 'EXC' ? B : (() => { const q1 = quant(d, .25, 'INC').v, q3 = quant(d, .75, 'INC').v, ric = q3 - q1, li = q1 - 1.5 * ric, ls = q3 + 1.5 * ric, s = sorted(d), inn = s.filter(v => v >= li && v <= ls); return { q1, q3, ric, li, ls, wl: inn[0], wh: inn[inn.length - 1], outs: s.filter(v => v < li || v > ls) }; })();
+  const boxRows = [
+    ['G2', 'Q₁', `=CUARTIL.${fn}(${R},1)`, Bx.q1],
+    ['G3', 'Q₃', `=CUARTIL.${fn}(${R},3)`, Bx.q3],
+    ['G4', 'RIC', '=G3-G2', Bx.ric],
+    ['G5', 'Cerca inferior LI', '=G2-1.5*G4', Bx.li],
+    ['G6', 'Cerca superior LS', '=G3+1.5*G4', Bx.ls],
+    ['G7', 'Fin del bigote inferior', `=MIN.SI.CONJUNTO(${R},${R},">="&G5)`, Bx.wl],
+    ['G8', 'Fin del bigote superior', `=MAX.SI.CONJUNTO(${R},${R},"<="&G6)`, Bx.wh],
+    ['G9', 'Número de atípicos', `=CONTAR.SI(${R},"<"&G5)+CONTAR.SI(${R},">"&G6)`, Bx.outs.length]
+  ];
+  // simulated sheet
+  const gridRows = Math.max(last, 10);
+  let grid = `<table class="xg"><tr><th></th><th>A</th><th>B</th></tr><tr><th>1</th><td class="hd" data-fx="${xl}">${xl}</td><td class="hd" data-fx="¿Atípico?">¿Atípico?</td></tr>`;
+  d.forEach((v, i) => { const r = i + 2, isOut = Bx.outs.includes(v); const fx = `=SI(O(A${r}<$G$5,A${r}>$G$6),"Atípico","")`; grid += `<tr><th>${r}</th><td class="inp" data-fx="${fv(v)}">${fv(v)}</td><td class="txt ${isOut ? 'flag' : ''}" data-fx='${fx}'>${isOut ? 'Atípico' : ''}</td></tr>`; });
+  grid += '</table>';
+  const H = [];
+  H.push(`<div class="xlsec"><h3>1. Captura los datos</h3><ol class="steps"><li>Escribe un encabezado en <code>A1</code> y los ${n} puntajes debajo, uno por celda, de <code>A2</code> a <code>A${last}</code>. No necesitas ordenarlos: las funciones lo hacen solas.</li><li>Revisa que Excel los reconozca como números: deben alinearse a la derecha. Si se alinean a la izquierda son texto (pasa al copiar de otros programas) y las funciones los ignorarán.</li></ol>
+  <div class="xl"><div class="xlbar">Hoja «No agrupados»</div><div class="xlfx"><b id="xlRef">A2</b><span id="xlFx">${fv(d[0])}</span></div><div class="xlgrid">${grid}</div></div><p class="note">Toca una celda para ver su contenido o fórmula en la barra de fórmulas. La columna B se explica en la sección 4.</p></div>`);
+  H.push(`<div class="xlsec"><h3>2. Cuartiles, deciles, percentiles y rango percentil</h3>
+  <div class="ctrl" style="margin:0 0 8px"><span class="note">Familia de funciones:</span><span class="seg" role="group" aria-label="Método"><button data-xm="EXC" aria-pressed="${m === 'EXC'}">.EXC (n + 1)</button><button data-xm="INC" aria-pressed="${m === 'INC'}">.INC</button></span></div>
+  <p>${m === 'EXC' ? 'Las funciones <strong>.EXC</strong> usan la posición (n + 1), la misma de las partes 1 y 3: los resultados coinciden con el cálculo a mano.' : 'Las funciones <strong>.INC</strong> usan la posición 1 + (n − 1)·p; con muestras pequeñas dan resultados distintos al cálculo a mano de esta guía. Compara con .EXC.'}</p>
+  <div class="tscroll"><table class="ftab"><tr><th>Medida</th><th>Fórmula (Excel en español)</th><th>Resultado</th></tr>${rows.map(([l, f, v, dec]) => `<tr><td>${l}</td><td class="fx">${f}${xlCopyBtn(f)}</td><td class="num">${dec ? v.toFixed(dec) : fv(v)}</td></tr>`).join('')}</table></div>
+  <ul><li>En <code>PERCENTIL</code> el segundo argumento es una proporción entre 0 y 1: el D<sub>3</sub> es 0.3 y el P<sub>90</sub> es 0.9 (o <code>90/100</code>).</li><li>En <code>CUARTIL</code> el segundo argumento es 1, 2 o 3. Con <code>.INC</code> también acepta 0 (mínimo) y 4 (máximo).</li><li><code>RANGO.PERCENTIL</code> devuelve una proporción, no un porcentaje: aplícale formato de porcentaje o multiplícala por 100. Por omisión la muestra con 3 cifras (aquí verías 0.6875 como 0.687 o 0.688); un tercer argumento opcional cambia el número de cifras.</li><li>Si con .EXC aparece <strong>#¡NUM!</strong>, la posición cae fuera de los datos: pasa con percentiles muy extremos y pocos casos (por ejemplo, P<sub>5</sub> con n = 15).</li><li>La función antigua <code>CUARTIL</code> (sin sufijo) equivale a <code>CUARTIL.INC</code>.</li></ul></div>`);
+  const L = posOf(n, .3), j = Math.floor(L);
+  H.push(`<div class="xlsec"><h3>3. Reproduce el cálculo a mano (para verificar)</h3><p>Para que tus alumnos vean que la función no es una «caja negra», puedes replicar la interpolación de la parte 1 con <code>K.ESIMO.MENOR</code>, que devuelve el dato que ocupa una posición en el orden. Ejemplo con el D<sub>3</sub>:</p>
+  <div class="tscroll"><table class="ftab"><tr><th>Celda</th><th>Qué calcula</th><th>Fórmula</th><th>Resultado</th></tr>
+  <tr><td>J2</td><td>Posición L = 3(n + 1)/10</td><td class="fx">=3*(CONTAR(${R})+1)/10${xlCopyBtn(`=3*(CONTAR(${R})+1)/10`)}</td><td class="num">${fv(L)}</td></tr>
+  <tr><td>J3</td><td>Parte entera j</td><td class="fx">=ENTERO(J2)${xlCopyBtn('=ENTERO(J2)')}</td><td class="num">${j}</td></tr>
+  <tr><td>J4</td><td>Parte decimal d</td><td class="fx">=J2-J3${xlCopyBtn('=J2-J3')}</td><td class="num">${fv(L - j)}</td></tr>
+  <tr><td>J5</td><td>Dato en la posición j</td><td class="fx">=K.ESIMO.MENOR(${R},J3)${xlCopyBtn(`=K.ESIMO.MENOR(${R},J3)`)}</td><td class="num">${fv(sorted(d)[j - 1])}</td></tr>
+  <tr><td>J6</td><td>Dato en la posición j + 1</td><td class="fx">=K.ESIMO.MENOR(${R},J3+1)${xlCopyBtn(`=K.ESIMO.MENOR(${R},J3+1)`)}</td><td class="num">${fv(sorted(d)[j])}</td></tr>
+  <tr><td>J7</td><td>Interpolación</td><td class="fx">=J5+J4*(J6-J5)${xlCopyBtn('=J5+J4*(J6-J5)')}</td><td class="num">${fv(quant(d, .3).v)}</td></tr></table></div>
+  <p>El resultado de <code>J7</code> debe coincidir con <code>=PERCENTIL.EXC(${R},0.3)</code>.</p></div>`);
+  H.push(`<div class="xlsec"><h3>4. Cálculos para el diagrama de caja y bigotes</h3><p>Coloca estos cálculos en la columna G (con sus etiquetas en F). Las cercas y los bigotes ya no tienen función propia, se construyen con fórmulas:</p>
+  <div class="tscroll"><table class="ftab"><tr><th>Celda</th><th>Medida</th><th>Fórmula</th><th>Resultado</th></tr>${boxRows.map(([c, l, f, v]) => `<tr><td>${c}</td><td>${l}</td><td class="fx">${f}${xlCopyBtn(f)}</td><td class="num">${fv(v)}</td></tr>`).join('')}</table></div>
+  <p>Para marcar cada atípico, escribe en <code>B2</code> y arrastra hacia abajo hasta <code>B${last}</code>:</p><div class="formula code">=SI(O(A2&lt;$G$5,A2&gt;$G$6),"Atípico","") ${xlCopyBtn('=SI(O(A2<$G$5,A2>$G$6),"Atípico","")')}</div><p class="note">Los signos <code>$</code> fijan las celdas de las cercas para que no se muevan al arrastrar. <code>MIN.SI.CONJUNTO</code> y <code>MAX.SI.CONJUNTO</code> existen desde Excel 2019 y Microsoft 365.</p></div>`);
+  H.push(`<div class="xlsec"><h3>5. Inserta el gráfico de cajas y bigotes</h3><p>Disponible en Excel 2016 o posterior y en Microsoft 365 (Windows y Mac).</p><ol class="steps">
+   <li><strong>Un grupo:</strong> selecciona <code>A1:A${last}</code>. <strong>Varios grupos:</strong> organiza los datos en dos columnas, una con el nombre del grupo (por ejemplo, «${ST.uOwn ? 'Grupo 1' : SC.gA}» o «${ST.uOwn ? 'Grupo 2' : SC.gB}») y otra con el puntaje, y selecciona ambas.</li>
+   <li>Ve a <span class="kbd">Insertar</span> → grupo <em>Gráficos</em> → icono <em>Insertar gráfico estadístico</em> → <strong>Cajas y bigotes</strong>.</li>
+   <li>Haz doble clic sobre una caja para abrir <em>Formato de serie de datos</em>. En las opciones de la serie puedes mostrar u ocultar los puntos interiores, los valores atípicos, el marcador de la media y la línea de la media.</li>
+   <li>En la misma ventana, en <em>Cálculo del cuartil</em>, elige <strong>mediana exclusiva</strong> para que el gráfico coincida con <code>CUARTIL.EXC</code> y con el cálculo a mano; la <em>mediana inclusiva</em> corresponde a <code>CUARTIL.INC</code>.</li>
+   <li>Agrega título y nombre del eje vertical (${xl}). Excel dibuja las cajas en vertical; la lectura es la misma que en la parte 3.</li>
+   <li>Verifica: los extremos de los bigotes deben coincidir con <code>G7</code> y <code>G8</code>, y los puntos sueltos con las celdas marcadas como «Atípico».</li></ol></div>`);
+  const G = ST.g, gq1 = gq(G, .25);
+  H.push(`<div class="xlsec"><h3>6. Datos agrupados en Excel</h3><p>Excel no tiene una función para cuantiles de datos agrupados, pero la fórmula de la parte 2 se arma con funciones básicas. Supón los datos crudos en <code>A2:A${G.n + 1}</code> y la tabla de clases a partir de la fila 2:</p>
+   <div class="tscroll"><table class="ftab"><tr><th>Columna</th><th>Contenido</th><th>Fórmula de la fila 2 (arrástrala hacia abajo)</th></tr>
+   <tr><td>C</td><td>Límite inferior L<sub>i</sub></td><td class="fx">=MIN($A$2:$A$${G.n + 1})+(FILA()-2)*$N$2</td></tr>
+   <tr><td>D</td><td>Límite superior L<sub>s</sub></td><td class="fx">=C2+$N$2-1</td></tr>
+   <tr><td>E</td><td>Límite real inferior</td><td class="fx">=C2-0.5</td></tr>
+   <tr><td>F</td><td>Límite real superior</td><td class="fx">=D2+0.5</td></tr>
+   <tr><td>G</td><td>Frecuencia f<sub>i</sub></td><td class="fx">=CONTAR.SI.CONJUNTO($A$2:$A$${G.n + 1},"&gt;="&amp;C2,$A$2:$A$${G.n + 1},"&lt;="&amp;D2)</td></tr>
+   <tr><td>H</td><td>Frecuencia acumulada F<sub>i</sub></td><td class="fx">=SUMA($G$2:G2)</td></tr></table></div>
+   <p class="note">En <code>N2</code> va la amplitud A. Si quieres calcularla también: <code>=REDONDEAR.MAS((MAX(datos)-MIN(datos))/REDONDEAR(1+3.322*LOG10(CONTAR(datos)),0),0)</code>, y súmale 1 si A·k no supera al rango. Los límites reales con ±0.5 suponen datos enteros.</p>
+   <p>Con la tabla en <code>C2:H${G.k + 1}</code>, calcula cualquier cuantil. Escribe en <code>K2</code> la proporción (0.25 para Q<sub>1</sub>, 0.9 para D<sub>9</sub>, 0.75 para P<sub>75</sub>):</p>
+   <div class="tscroll"><table class="ftab"><tr><th>Celda</th><th>Qué calcula</th><th>Fórmula</th><th>Ejemplo con Q₁</th></tr>
+   <tr><td>K3</td><td>Posición k·n/q</td><td class="fx">=K2*SUMA(G2:G${G.k + 1})</td><td class="num">${fv(gq1.pos)}</td></tr>
+   <tr><td>K4</td><td>Número de la clase que la contiene</td><td class="fx">=CONTAR.SI(H2:H${G.k + 1},"&lt;"&amp;K3)+1</td><td class="num">${gq1.i + 1}</td></tr>
+   <tr><td>K5</td><td>L<sub>i</sub> (límite real inferior)</td><td class="fx">=INDICE(E2:E${G.k + 1},K4)</td><td class="num">${fv(gq1.r.LRi)}</td></tr>
+   <tr><td>K6</td><td>F<sub>i−1</sub></td><td class="fx">=SI(K4=1,0,INDICE(H2:H${G.k + 1},K4-1))</td><td class="num">${gq1.Fp}</td></tr>
+   <tr><td>K7</td><td>f<sub>i</sub></td><td class="fx">=INDICE(G2:G${G.k + 1},K4)</td><td class="num">${gq1.r.fi}</td></tr>
+   <tr><td>K8</td><td>Cuantil</td><td class="fx">=K5+((K3-K6)/K7)*$N$2</td><td class="num">${f2(gq1.v)}</td></tr></table></div>
+   <p>El truco de <code>K4</code>: cuenta cuántas clases tienen una frecuencia acumulada menor que la posición; la siguiente es la que la contiene. El libro descargable trae esta hoja armada con los ${G.n} datos agrupados del escenario.</p></div>`);
+  $('#xlBody').innerHTML = H.join('');
+  document.querySelectorAll('#xlBody .xg td').forEach(td => td.onclick = () => { document.querySelectorAll('#xlBody .xg td').forEach(x => x.classList.remove('sel')); td.classList.add('sel'); const row = td.parentElement.firstElementChild.textContent, col = td.cellIndex === 1 ? 'A' : 'B'; $('#xlRef').textContent = col + row; $('#xlFx').textContent = td.dataset.fx; });
+  document.querySelectorAll('#xlBody [data-xm]').forEach(b => b.onclick = () => { ST.xlMode = b.dataset.xm; renderExcel(); });
+  document.querySelectorAll('#xlBody .copy').forEach(b => b.onclick = () => { const t = b.dataset.copy; const done = () => { b.textContent = 'Copiada'; setTimeout(() => b.textContent = 'Copiar', 1400); }; try { navigator.clipboard.writeText(t).then(done, () => { b.textContent = 'Selecciona y copia'; }); } catch (e) { b.textContent = 'Selecciona y copia'; } });
+  const a = $('#xlDown'), data = XLSX[KEY];
+  if (data && data.indexOf('__') !== 0){ a.href = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,' + data; a.download = `medidas-de-posicion-${KEY === 'clin' ? 'clinico' : 'forense'}.xlsx`; a.removeAttribute('aria-disabled'); }
+  else { a.setAttribute('aria-disabled', 'true'); }
+}
+
+/* ================= PARTE 5: ejercicio ================= */
+function field(id, label){ return `<label>${label}<input class="cell2" id="${id}" inputmode="decimal" autocomplete="off"><span class="fb" id="${id}fb"></span></label>`; }
+function chk(id, truth, tol, hint, fill){ const el = $('#' + id); if (fill) el.value = fv(truth); const ok = Math.abs(num(el.value) - truth) <= tol; el.classList.toggle('ok', ok); el.classList.toggle('bad', !ok); const fb = $('#' + id + 'fb'); fb.textContent = ok ? 'Correcto' : hint; fb.className = 'fb ' + (ok ? 'ok' : 'bad'); return ok; }
+const EXP = {
+  clin: { lo: 4, hi: 40, var: 'puntajes en el Inventario de Depresión de Beck (BDI-II)', who: 'pacientes de primera consulta', gVar: 'puntajes en la Escala de Estrés Percibido (EEP-14, 0 a 56)', gWho: 'estudiantes de psicología en semana de exámenes', g: [26, 8], bxA: 'Grupo terapia', bxB: 'Lista de espera' },
+  for: { lo: 40, hi: 95, var: 'puntajes de impulsividad en la Escala de Barratt (BIS-11)', who: 'adolescentes en internamiento', gVar: 'puntajes de la PCL-5 (0 a 80)', gWho: 'víctimas de violencia sexual atendidas en una fiscalía', g: [44, 13], bxA: 'Centro A', bxB: 'Centro B' }
+};
+function newEx(){
+  const E = EXP[KEY];
+  // A: no agrupados
+  let d, B, Dk, Pk, tries = 0;
+  do {
+    const n = rint(11, 19); d = Array.from({ length: n }, () => rint(E.lo, Math.round(E.lo + (E.hi - E.lo) * .65)));
+    if (Math.random() < .65) d[rint(0, n - 1)] = rint(Math.round(E.hi * .92), E.hi);
+    B = box(d); Dk = rint(1, 9); while (Dk === 5) Dk = rint(1, 9);
+    Pk = [10, 15, 20, 30, 35, 40, 60, 65, 70, 80, 85, 90][rint(0, 11)]; tries++;
+  } while ((posOf(d.length, Pk / 100) < 1 || posOf(d.length, Pk / 100) > d.length) && tries < 50);
+  const s = sorted(d), uniq = s.filter(v => s.indexOf(v) === s.lastIndexOf(v)); const prv = uniq.length ? uniq[rint(0, uniq.length - 1)] : s[Math.floor(s.length / 2)];
+  const PRv = prOf(d, prv), qD = quant(d, Dk / 10), qP = quant(d, Pk / 100);
+  $('#exA').innerHTML = `<p>Se registraron los ${E.var} de ${d.length} ${E.who}:</p><div class="ordered">${d.map(v => `<span class="ord"><b>${v}</b></span>`).join('')}</div>
+   <div class="calcgrid">${field('a1', 'Posición de Q₁')}${field('a2', 'Q₁')}${field('a3', 'Mediana')}${field('a4', 'Q₃')}${field(`a5`, `D<sub>${Dk}</sub>`)}${field('a6', `P<sub>${Pk}</sub>`)}${field('a7', `Rango percentil de ${prv} (%)`)}${field('a8', 'RIC')}${field('a9', 'Cerca inferior LI')}${field('a10', 'Cerca superior LS')}${field('a11', 'Número de atípicos')}</div>
+   <div class="ctrl"><button class="btn small" id="aChk">Comprobar</button><button class="btn small ghost" id="aSol">Ver solución</button></div><div class="msg" id="aM"></div><div class="sol" id="aS"></div>`;
+  const runA = fill => {
+    let ok = chk('a1', posOf(d.length, .25), .011, '(n + 1) / 4', fill);
+    ok = chk('a2', B.q1, .011, 'Ordena e interpola en esa posición.', fill) && ok; ok = chk('a3', B.me, .011, 'Posición (n + 1) / 2', fill) && ok; ok = chk('a4', B.q3, .011, 'Posición 3(n + 1) / 4', fill) && ok;
+    ok = chk('a5', qD.v, .011, `Posición ${Dk}(n + 1) / 10`, fill) && ok; ok = chk('a6', qP.v, .011, `Posición ${Pk}(n + 1) / 100`, fill) && ok; ok = chk('a7', PRv.pr, .06, 'posición / (n + 1) × 100', fill) && ok;
+    ok = chk('a8', B.ric, .011, 'Q₃ − Q₁', fill) && ok; ok = chk('a9', B.li, .011, 'Q₁ − 1.5 · RIC', fill) && ok; ok = chk('a10', B.ls, .011, 'Q₃ + 1.5 · RIC', fill) && ok; ok = chk('a11', B.outs.length, 0, 'Cuenta los datos fuera de las cercas.', fill) && ok;
+    $('#aM').textContent = fill ? '' : ok ? 'Todo correcto.' : 'Revisa los campos marcados; puedes ver la solución paso a paso.'; $('#aM').className = 'msg ' + (ok ? 'ok' : 'bad');
+    if (fill){ const n = d.length; $('#aS').classList.add('on'); $('#aS').innerHTML = `${orderedHTML(d, [], B.outs)}${calcBlock(d, 'Q', 1)}${calcBlock(d, 'Q', 2)}${calcBlock(d, 'Q', 3)}${calcBlock(d, 'D', Dk)}${calcBlock(d, 'P', Pk)}<div class="formula">Rango percentil de ${prv}: posición ${fv(PRv.pos)} / ${n + 1} × 100 = ${f1(PRv.pr)}%</div><div class="formula">RIC = ${fv(B.q3)} − ${fv(B.q1)} = ${fv(B.ric)} · LI = ${fv(B.q1)} − 1.5 · ${fv(B.ric)} = ${fv(B.li)} · LS = ${fv(B.q3)} + 1.5 · ${fv(B.ric)} = ${fv(B.ls)}<br>Atípicos: ${B.outs.length ? B.outs.join(', ') : 'ninguno'} · Bigotes: ${fv(B.wl)} a ${fv(B.wh)}</div>${boxSVG([{ name: 'Datos', data: d, b: B }], { stage: 7, labels: true, rowH: 90 })}<p class="note">En Excel: =CUARTIL.EXC(A2:A${n + 1},1), =PERCENTIL.EXC(A2:A${n + 1},${Dk / 10}), =RANGO.PERCENTIL.EXC(A2:A${n + 1},${prv}).</p>`; }
+  };
+  $('#aChk').onclick = () => runA(false); $('#aSol').onclick = () => runA(true);
+  // B: agrupados
+  let G, gk, ok2 = false, t2 = 0;
+  do { const n = rint(40, 60); const raw = Array.from({ length: n }, () => Math.max(0, Math.round(E.g[0] + E.g[1] * (Math.random() + Math.random() + Math.random() - 1.5) * 2))); G = grouped(raw); ok2 = G.rows.every(r => r.fi > 0); t2++; } while (!ok2 && t2 < 40);
+  gk = [[ 'Q', 3 ], ['D', rint(1, 4)], ['P', [15, 35, 60, 80, 95][rint(0, 4)]]];
+  const gx = Math.round(G.rows[Math.floor(G.k / 2)].LRi + G.A * .4), GPR = gpr(G, gx);
+  const res = gk.map(([t, k]) => gq(G, k / QN[t]));
+  $('#exB').innerHTML = `<p>Tabla de los ${E.gVar} de ${G.n} ${E.gWho}:</p>${gTable(G)}<p class="note">Amplitud A = ${fv(G.A)}. Usa la posición k·n/q y la fórmula de interpolación.</p>
+   <div class="calcgrid">${gk.map(([t, k], i) => field('b' + i, `${t}<sub>${k}</sub>`)).join('')}${field('b3', `Rango percentil de ${gx} (%)`)}</div>
+   <div class="ctrl"><button class="btn small" id="bChk">Comprobar</button><button class="btn small ghost" id="bSol">Ver solución</button></div><div class="msg" id="bM"></div><div class="sol" id="bS"></div>`;
+  const runB = fill => {
+    let ok = true; gk.forEach(([t, k], i) => ok = chk('b' + i, res[i].v, .021, 'L_i + [(posición − F_i−1) / f_i] · A', fill) && ok);
+    ok = chk('b3', GPR.pr, .06, '[F_i−1 + ((X − L_i) / A) · f_i] / n × 100', fill) && ok;
+    $('#bM').textContent = fill ? '' : ok ? 'Todo correcto.' : 'Revisa los campos marcados.'; $('#bM').className = 'msg ' + (ok ? 'ok' : 'bad');
+    if (fill){ $('#bS').classList.add('on'); $('#bS').innerHTML = gk.map(([t, k]) => gCalc(G, t, k)).join('') + `<div class="formula">RP de ${gx}: [${GPR.Fp} + ((${gx} − ${fv(GPR.r.LRi)}) / ${fv(G.A)}) · ${GPR.r.fi}] / ${G.n} × 100 = ${f1(GPR.pr)}%</div>`; }
+  };
+  $('#bChk').onclick = () => runB(false); $('#bSol').onclick = () => runB(true);
+  // C: interpretación
+  let A1, A2, bA, bB, t3 = 0;
+  do {
+    const n1 = rint(14, 20), n2 = rint(14, 20), sh = Math.random() < .5 ? 'pos' : 'neg';
+    const gen = (n, c, sp, skew) => Array.from({ length: n }, () => { let z = Math.random() + Math.random() + Math.random() - 1.5; if (skew === 'pos') z = Math.abs(z) * 1.6 - .5; if (skew === 'neg') z = -(Math.abs(z) * 1.6 - .5); return Math.round(c + sp * z * 2); });
+    A1 = gen(n1, E.lo + (E.hi - E.lo) * .45, (E.hi - E.lo) * .12, sh); A2 = gen(n2, E.lo + (E.hi - E.lo) * (Math.random() < .5 ? .3 : .6), (E.hi - E.lo) * .05, 'sym');
+    bA = box(A1); bB = box(A2); t3++;
+  } while ((Math.abs(bA.me - bB.me) < (E.hi - E.lo) * .08 || Math.abs(bA.ric - bB.ric) < (E.hi - E.lo) * .05 || shape(bA).key === 'sym') && t3 < 200);
+  const shA = shape(bA);
+  const qs = [
+    { p: '¿Qué grupo tiene la mediana más alta?', o: [[E.bxA, bA.me > bB.me], [E.bxB, bB.me > bA.me], ['Son iguales', false]], w: `Compara la línea gruesa dentro de cada caja: ${E.bxA} = ${fv(bA.me)}, ${E.bxB} = ${fv(bB.me)}.` },
+    { p: '¿Qué grupo es más homogéneo en su 50% central?', o: [[E.bxA, bA.ric < bB.ric], [E.bxB, bB.ric < bA.ric], ['No se puede saber con el diagrama', false]], w: `El grupo con la caja más corta (menor RIC) es más homogéneo: RIC ${E.bxA} = ${fv(bA.ric)}, ${E.bxB} = ${fv(bB.ric)}.` },
+    { p: `¿Qué forma tiene la distribución de «${E.bxA}»?`, o: [['Aproximadamente simétrica', false], ['Asimetría positiva', shA.key === 'pos'], ['Asimetría negativa', shA.key === 'neg']], w: `Mira dónde queda la mediana dentro de la caja y qué bigote es más largo: Q₁ = ${fv(bA.q1)}, Me = ${fv(bA.me)}, Q₃ = ${fv(bA.q3)}; bigotes de ${fv(bA.wl)} a ${fv(bA.wh)}. Es ${shA.txt}.` },
+    { p: `Un caso de «${E.bxB}» aparece como punto suelto. ¿Qué conviene hacer?`, o: [['Eliminarlo, porque es un error', false], ['Verificar la captura y revisar el caso antes de decidir', true], ['Reemplazarlo por la media del grupo', false]], w: 'Un atípico es un criterio estadístico para revisar, no una prueba de error. Primero se verifica la captura; si el dato es real, puede ser el caso clínicamente más relevante.' }
+  ];
+  $('#exC').innerHTML = `<div class="viz">${boxSVG([{ name: E.bxA, data: A1, b: bA }, { name: E.bxB, data: A2, b: bB }], { stage: 7, rowH: 95 })}</div>${qs.map((q, i) => `<div class="q" id="cq${i}"><p>${i + 1}. ${q.p}</p>${q.o.map(([t, ok], j) => `<label><input type="radio" name="cq${i}" data-ok="${ok}"> <span>${t}</span></label>`).join('')}<div class="why">${q.w}</div></div>`).join('')}<div class="ctrl"><button class="btn small" id="cChk">Comprobar respuestas</button></div><div class="msg" id="cM"></div>`;
+  $('#cChk').onclick = () => { let ok = 0, ans = 0; document.querySelectorAll('#exC .q').forEach(q => { q.querySelectorAll('label').forEach(l => l.classList.remove('ok', 'bad')); const sel = q.querySelector('input:checked'); if (!sel) return; ans++; q.classList.add('checked'); q.querySelectorAll('input').forEach(i => { if (i.dataset.ok === 'true') i.parentElement.classList.add('ok'); }); if (sel.dataset.ok === 'true') ok++; else sel.parentElement.classList.add('bad'); }); $('#cM').textContent = ans < qs.length ? 'Responde todas las preguntas.' : `${ok} de ${qs.length} correctas.`; $('#cM').className = 'msg ' + (ok === qs.length ? 'ok' : 'bad'); };
+}
+$('#exNew').onclick = newEx;
+
+/* ================= datos propios, navegación, escenario ================= */
+function msg(id, t, c){ const m = $('#' + id); m.textContent = t; m.className = 'msg ' + c; }
+function cases(){
+  const lab = KEY === 'clin' ? 'Caso clínico' : 'Caso forense';
+  $('#p1case').innerHTML = ST.uOwn ? `<p><strong>Tus datos.</strong> n = ${ST.u.length}.</p>` : `<p><strong>${lab}.</strong> ${SC.uIntro}</p>`;
+  $('#p2case').innerHTML = ST.gOwn ? `<p><strong>Tus datos agrupados.</strong> n = ${ST.g.n}.</p>` : `<p><strong>${lab}.</strong> ${SC.gIntro}</p>`;
+  $('#p3case').innerHTML = ST.uOwn ? `<p><strong>Tus datos.</strong> n = ${ST.u.length}.</p>` : `<p><strong>${lab}.</strong> ${SC.uIntro} ${SC.cmpIntro}</p>`;
+}
+function refreshU(){ cases(); STEPPERS.u.go(0); STEPPERS.b.go(0); renderExcel(); }
+$('#uApply').onclick = () => { const d = parse($('#uText').value); if (d.some(isNaN) || d.length < 5 || new Set(d).size < 3) return msg('uMsg', 'Necesitas al menos 5 números y 3 valores distintos.', 'bad'); ST.u = d; ST.uOwn = true; refreshU(); msg('uMsg', 'Datos aplicados en las partes 1, 3 y 4. El libro de Excel descargable conserva los datos del ejemplo.', 'ok'); };
+$('#uReset').onclick = () => { ST.u = SC.u; ST.uOwn = false; refreshU(); msg('uMsg', '', ''); };
+$('#gApply').onclick = () => { const d = parse($('#gText').value); if (d.some(isNaN) || d.length < 20 || new Set(d).size < 5) return msg('gMsg', 'Necesitas al menos 20 números y 5 valores distintos.', 'bad'); ST.g = grouped(d); ST.gOwn = true; cases(); STEPPERS.g.go(0); renderExcel(); msg('gMsg', 'Datos agrupados y aplicados.', 'ok'); };
+$('#gReset').onclick = () => { ST.g = grouped(SC.g); ST.gOwn = false; cases(); STEPPERS.g.go(0); renderExcel(); msg('gMsg', '', ''); };
+document.querySelectorAll('nav.parts button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('nav.parts button').forEach(x => x.setAttribute('aria-selected', x === b));
+  document.querySelectorAll('section.part').forEach(s => s.classList.toggle('on', s.id === b.dataset.part));
+});
+function setScen(k){
+  KEY = k; SC = SCEN[k]; ST.u = SC.u; ST.uOwn = false; ST.g = grouped(SC.g); ST.gOwn = false;
+  document.querySelectorAll('.scen button').forEach(b => b.setAttribute('aria-pressed', b.dataset.scen === k));
+  cases(); Object.values(STEPPERS).forEach(s => s.go(0)); renderExcel(); newEx();
+}
+['u', 'g', 'b'].forEach(buildStepper);
+document.querySelectorAll('.scen button').forEach(b => b.onclick = () => setScen(b.dataset.scen));
+setScen('clin');
+</script>
+</body>
+</html>
+
+</body></html>
